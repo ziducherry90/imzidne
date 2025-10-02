@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khondokar Intesab Montasir Zidne — Portfolio</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN (JIT in the browser) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config: accent color teal + dark mode class
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            accent: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-poppins">
+  <!-- Header -->
+  <header
+    class="sticky top-0 z-40 border-b border-slate-200/70 dark:border-slate-800 bg-white/80 dark:bg-slate-950/70 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="font-semibold tracking-tight text-accent-700 dark:text-accent-400">IMZ</a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a class="hover:underline" href="#about">About</a>
+        <a class="hover:underline" href="#experience">Experience</a>
+        <a class="hover:underline" href="#education">Education</a>
+        <a class="hover:underline" href="#skills">Skills</a>
+        <a class="hover:underline" href="#awards">Awards</a>
+        <a class="hover:underline" href="#activities">Activities</a>
+        <a class="hover:underline" href="#contact">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <!-- Replaced "Resume (print)" with explicit Download Resume link -->
+        <a href="https://drive.google.com/file/d/1FHTZJ4Tlwrgk3cAM_x4bg1NXPUFCL4oH/view?usp=sharing"
+          class="inline-flex items-center text-sm border border-accent-500/60 hover:bg-accent-50 dark:hover:bg-accent-900/20 px-3 py-1.5 rounded-lg"
+          target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Download Resume
+        </a>
+        <!-- Keep Light/Dark theme toggle -->
+        <button id="themeToggle"
+          class="inline-flex items-center text-sm border border-slate-300 dark:border-slate-700 px-3 py-1.5 rounded-lg">
+          <span id="themeLabel">Dark</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+    <div class="grid lg:grid-cols-5 gap-8 items-start">
+      <div class="lg:col-span-3 space-y-6">
+        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
+          <span class="block text-slate-500 dark:text-slate-400 text-xl sm:text-2xl">Hello —</span>
+          <span class="block">This is <span class="text-accent-700 dark:text-accent-400">Khondokar Intesab Montasir
+              Zidne</span></span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
+          CSE Student • Digital Storyteller • Content & Branding
+        </p>
+        <p class="text-sm sm:text-base max-w-3xl leading-relaxed">
+          Versatile Computer Science and Engineering (CSE) Student uniquely skilled at bridging the gap between
+          technical development and market-facing communication. Strong foundation in programming and web development
+          combined with hands-on experience in content creation, branding, and multimedia production. Proven ability to
+          engage audiences, lead small teams, and apply technical solutions that strengthen brand presence and deliver
+          measurable value.
+        </p>
+
+        <!-- Contacts -->
+        <div class="flex flex-wrap items-center gap-3 text-sm">
+          <a href="tel:+88015312103000" class="inline-flex items-center gap-2 hover:underline">
+            <span class="icon">📞</span> +88015312103000
+          </a>
+          <span class="text-slate-400">•</span>
+          <a href="mailto:intesabmontasirzidne99@gmail.com" class="inline-flex items-center gap-2 hover:underline">
+            <span class="icon">✉️</span> intesabmontasirzidne99@gmail.com
+          </a>
+          <span class="text-slate-400">•</span>
+          <span class="inline-flex items-center gap-2">
+            <span class="icon">📍</span> 80/1, Siddheswari Circular Road, Dhaka 1217, Bangladesh
+          </span>
+        </div>
+
+        <!-- Socials -->
+        <div class="flex flex-wrap gap-2">
+          <a href="https://www.facebook.com/itsmon.zidne25" target="_blank" rel="noreferrer noopener"
+            class="inline-flex items-center gap-2 text-sm border rounded-full px-3 py-1 hover:bg-accent-50 dark:hover:bg-accent-900/20">
+            <span>Facebook</span> ↗
+          </a>
+          <a href="https://www.instagram.com/zid.u1/" target="_blank" rel="noreferrer noopener"
+            class="inline-flex items-center gap-2 text-sm border rounded-full px-3 py-1 hover:bg-accent-50 dark:hover:bg-accent-900/20">
+            <span>Instagram</span> ↗
+          </a>
+          <a href="https://www.linkedin.com/in/intesab-montasir-zidne-16ba27333" target="_blank"
+            rel="noreferrer noopener"
+            class="inline-flex items-center gap-2 text-sm border rounded-full px-3 py-1 hover:bg-accent-50 dark:hover:bg-accent-900/20">
+            <span>LinkedIn</span> ↗
+          </a>
+        </div>
+
+        <div class="flex gap-3 pt-2">
+          <a href="#contact"
+            class="inline-flex items-center bg-accent-600 hover:bg-accent-700 text-white px-4 py-2 rounded-lg">
+            ✉️ Contact Me
+          </a>
+          <a href="#projects" class="inline-flex items-center border px-4 py-2 rounded-lg">
+            ↗ View Work
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <img src="image.jpeg" class="rounded-xl" alt="">
+        <br>
+        <div class="rounded-xl border shadow-sm p-4">
+          <h3 class="text-base font-semibold mb-2">Quick Facts</h3>
+          <ul class="text-sm space-y-3">
+            <li class="flex items-center gap-2">🏆 Multi‑disciplinary: Dev + Branding + Content</li>
+            <li class="flex items-center gap-2">💼 Open to Internships & Part-time</li>
+            <li class="flex items-center gap-2">📍 Dhaka, Bangladesh</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-center gap-3 mb-6">
+      <span>💼</span>
+      <div>
+        <h2 class="text-xl sm:text-2xl font-semibold leading-tight">Experience</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">What I've been working on</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- TripTakerz -->
+      <div class="rounded-xl border shadow-sm">
+        <div class="p-4 pb-2">
+          <div class="flex items-center justify-between text-base sm:text-lg font-semibold">
+            <span>Jr. Consultant — <span class="text-slate-500 dark:text-slate-400">TripTakerz</span></span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 font-normal">May 2025 – Present</span>
+          </div>
+        </div>
+        <div class="p-4 pt-0">
+          <ul class="list-disc pl-5 space-y-2 text-sm">
+            <li>Managed visa file processing and documentation per embassy/consulate requirements.</li>
+            <li>Communicated with clients via social media, WhatsApp, and IP calls; provided updates and resolved
+              inquiries.</li>
+            <li>Verified airline tickets, package inclusions, and travel arrangements prior to submission to seniors.
+            </li>
+            <li>Compiled data, prepared client-facing materials, and coordinated information to streamline consulting.
+            </li>
+            <li>Maintained clear records and communication to ensure client satisfaction across the journey.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Cholokini.com -->
+      <div class="rounded-xl border shadow-sm">
+        <div class="p-4 pb-2">
+          <div class="flex items-center justify-between text-base sm:text-lg font-semibold">
+            <span>Content Writer & Creative Team Member — <span
+                class="text-slate-500 dark:text-slate-400">Cholokini.com</span></span>
+            <span class="text-xs text-slate-500 dark:text-slate-400 font-normal">Jun 2023 – Apr 2025</span>
+          </div>
+        </div>
+        <div class="p-4 pt-0">
+          <ul class="list-disc pl-5 space-y-2 text-sm">
+            <li>Developed blogs, articles, and social content tailored to audience needs.</li>
+            <li>Maintained and updated product pages for clarity and UX.</li>
+            <li>Partnered with designers on brand-aligned campaigns and creatives.</li>
+            <li>Proposed and tested content strategies that boosted online engagement.</li>
+            <li>Produced copy and promotional materials for events; supported packaging QC.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-center gap-3 mb-6">
+      <span>📚</span>
+      <div>
+        <h2 class="text-xl sm:text-2xl font-semibold leading-tight">Education</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Academic background</p>
+      </div>
+    </div>
+    <div class="rounded-xl border">
+      <div class="divide-y">
+        <div class="grid sm:grid-cols-[1fr_auto] items-start gap-2 p-4">
+          <div>
+            <div class="font-medium">United International University</div>
+            <div class="text-sm text-slate-500 dark:text-slate-400">B.Sc. in Computer Science & Engineering</div>
+          </div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap">2022 – Present</div>
+        </div>
+        <div class="grid sm:grid-cols-[1fr_auto] items-start gap-2 p-4">
+          <div>
+            <div class="font-medium">Dhaka Imperial College</div>
+            <div class="text-sm text-slate-500 dark:text-slate-400">Higher Secondary Certificate (HSC), CGPA 5.00</div>
+          </div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap">2019 – 2021</div>
+        </div>
+        <div class="grid sm:grid-cols-[1fr_auto] items-start gap-2 p-4">
+          <div>
+            <div class="font-medium">National Bank Public School</div>
+            <div class="text-sm text-slate-500 dark:text-slate-400">Secondary School Certificate (SSC), CGPA 4.72</div>
+          </div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap">2008 – 2019</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-center gap-3 mb-6">
+      <span>🧰</span>
+      <div>
+        <h2 class="text-xl sm:text-2xl font-semibold leading-tight">Skills</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Core, technical, and interests</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-xl border">
+        <div class="p-4 pb-2">
+          <div class="text-base font-semibold">Core</div>
+        </div>
+        <div class="p-4 pt-0">
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Communication</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Creativity</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Leadership</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Problem-Solving</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Teamwork</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl border">
+        <div class="p-4 pb-2">
+          <div class="text-base font-semibold">Technical</div>
+        </div>
+        <div class="p-4 pt-0">
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Java</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">C</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">HTML</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">VS Code</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">MS Office</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Canva</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">CapCut</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Adobe Illustrator (basic)</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">SEO Content & Social
+              Campaigns</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl border">
+        <div class="p-4 pb-2">
+          <div class="text-base font-semibold">Hobbies & Interests</div>
+        </div>
+        <div class="p-4 pt-0">
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Blogging/Vlogging</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Gaming</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Photography</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Sports</span>
+            <span class="px-2 py-1 text-xs rounded-xl bg-slate-100 dark:bg-slate-800">Volunteering</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-center gap-3 mb-6">
+      <span>🔗</span>
+      <div>
+        <h2 class="text-xl sm:text-2xl font-semibold leading-tight">Projects & Work</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Selected highlights</p>
+      </div>
+    </div>
+    <div class="rounded-xl border bg-slate-50/60 dark:bg-slate-900/30 p-8 text-center">
+      <p class="text-sm">No projects added yet.</p>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">You can showcase academic assignments, web apps, brand
+        campaigns, or photography/videography work here.</p>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-center gap-3 mb-6">
+      <span>🏅</span>
+      <div>
+        <h2 class="text-xl sm:text-2xl font-semibold leading-tight">Certifications & Awards</h2>
+      </div>
+    </div>
+    <div class="rounded-xl border p-4">
+      <ul class="list-disc pl-5 space-y-2 text-sm">
+        <li>"Oddity Special" Award</li>
+        <li>Best Volunteer – Youth For Smile 2021</li>
+        <li>International Entrepreneurs Day 2023 Awards</li>
+        <li>Zero Missing Children Network 2025</li>
+        <li>3rd Place – DSLR Photography Contest, MGGHS Online & Technology Fiesta 2020</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section id="activities" class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-center gap-3 mb-6">
+      <span>🎭</span>
+      <div>
+        <h2 class="text-xl sm:text-2xl font-semibold leading-tight">Clubs & Event Activities</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Leadership, volunteering, and organizing</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="rounded-xl border p-4">
+        <div class="text-base font-semibold flex items-center justify-between">
+          <span>Volunteer – CSE Project Show (UIU CSE Department)</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">Jan 2023 – Present</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-2 text-sm mt-3">
+          <li>Guided visitors through projects and demos</li>
+          <li>Answered technical questions</li>
+          <li>Supported project teams with troubleshooting</li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border p-4">
+        <div class="text-base font-semibold flex items-center justify-between">
+          <span>Volunteer & Organizer – Zero Missing Children Summit 2025</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">Mar 2025 – Present</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-2 text-sm mt-3">
+          <li>Logistics, registration, and venue setup</li>
+          <li>Coordination with speakers and participants</li>
+          <li>Event promotion and attendee support</li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border p-4">
+        <div class="text-base font-semibold flex items-center justify-between">
+          <span>Organizer & Branding – UIU Comedy Carnival 2025 (UIU Theatre & Film Club)</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">18 Jan 2025 – 29 Jan 2025</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-2 text-sm mt-3">
+          <li>Event planning and on-site logistics</li>
+          <li>Branding materials (posters, flyers)</li>
+          <li>Managed social media promotion</li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border p-4">
+        <div class="text-base font-semibold flex items-center justify-between">
+          <span>Organizer & Media – Rush Hours by UIU Robotics</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">4 Dec 2024</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-2 text-sm mt-3">
+          <li>Social media strategy and creatives</li>
+          <li>Workshops/events collateral</li>
+          <li>Competition logistics and setup</li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border p-4">
+        <div class="text-base font-semibold flex items-center justify-between">
+          <span>Volunteer – Banglalink Youth Fest 2023 (UIU Cultural Club)</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">25 Jul 2023</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-2 text-sm mt-3">
+          <li>Logistics, attendee guidance, and social promotion</li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border p-4">
+        <div class="text-base font-semibold flex items-center justify-between">
+          <span>Volunteer – UIU CSE Week 2023 (UIU Computer Club)</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">17 – 21 Jun 2023</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-2 text-sm mt-3">
+          <li>Programming contest ops, guidance, and promotion</li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border p-4">
+        <div class="text-base font-semibold flex items-center justify-between">
+          <span>Organizer & Branding – Spectrum Fantascienza 1.0 (Spectrum Science Club)</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">23 Jul 2020</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-2 text-sm mt-3">
+          <li>Planning, branding, social media, and coordination</li>
+        </ul>
+      </div>
+
+      <div class="rounded-xl border p-4">
+        <div class="text-base font-semibold flex items-center justify-between">
+          <span>Volunteer – WROBd 2025 Dhaka Regional</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400">27 Aug 2025</span>
+        </div>
+        <ul class="list-disc pl-5 space-y-2 text-sm mt-3">
+          <li>Participant support and Q&amp;A</li>
+          <li>Assisted judges, ran demos, and provided technical help</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
+    <div class="rounded-xl border border-dashed p-10 text-center space-y-4">
+      <h3 class="text-xl sm:text-2xl font-semibold">Let's work together</h3>
+      <p class="text-sm text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+        I'm open to internships, part‑time roles, and collaborations in development, content, and branding. Drop me a
+        line and I'll reply promptly.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="mailto:intesabmontasirzidne99@gmail.com"
+          class="inline-flex items-center bg-accent-600 hover:bg-accent-700 text-white px-4 py-2 rounded-lg">
+          ✉️ Email Me
+        </a>
+        <a href="tel:+88015312103000" class="inline-flex items-center border px-4 py-2 rounded-lg">
+          ☎️ Call
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 py-16">
+    <div class="rounded-xl border border-dashed p-10 text-center space-y-4">
+      <img src="img2.jpeg" class="rounded-xl" alt="">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t py-8">
+    <div
+      class="max-w-6xl mx-auto px-4 text-sm text-slate-500 dark:text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>© <span id="year"></span> Khondokar Intesab Montasir Zidne. All rights reserved.</div>
+      <div class="flex items-center gap-2">
+        <span>Built with</span>
+        <a href="#top" class="font-medium hover:underline">HTML</a>
+        <span>·</span>
+        <a href="#top" class="font-medium hover:underline">Tailwind</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Print styles -->
+  <style>
+    @media print {
+
+      header,
+      nav,
+      footer,
+      #projects,
+      #activities {
+        display: none !important;
+      }
+
+      a::after {
+        content: "" !important;
+      }
+
+      section {
+        page-break-inside: avoid;
+      }
+
+      body {
+        background: white;
+      }
+    }
+  </style>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

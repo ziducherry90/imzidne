@@ -1,1042 +1,1382 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en" class="scroll-smooth dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intesab Montasir Zidne Portfolio</title>
-  <link rel="icon" type="image/png" href="IMZ.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intesab Montasir Zidne | Portfolio</title>
+    <meta name="description" content="Software Developer, Content Creator, and Digital Brand Storyteller. Building digital experiences through code, creativity, and storytelling.">
+    <link rel="icon" type="image/png" href="IMZ.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Outfit', 'sans-serif'],
-            display: ['Space Grotesk', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              50: '#f5f3ff',
-              100: '#ede9fe',
-              200: '#ddd6fe',
-              300: '#c4b5fd',
-              400: '#a78bfa',
-              500: '#8b5cf6',
-              600: '#7c3aed',
-              700: '#6d28d9',
-              800: '#5b21b6',
-              900: '#4c1d95',
-            },
-            accent: {
-              500: '#ec4899', // Pink
-              400: '#22d3ee', // Cyan
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#05050a',
+                            800: '#0a0a12',
+                            700: '#14141f',
+                        },
+                        accent: {
+                            blue: '#3b82f6',
+                            purple: '#8b5cf6',
+                            cyan: '#06b6d4',
+                            pink: '#ec4899',
+                            teal: '#14b8a6',
+                            orange: '#f97316'
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
             }
-          },
-          animation: {
-            'blob': 'blob 7s infinite',
-            'fade-in': 'fadeIn 1s ease-out forwards',
-          },
-          keyframes: {
-            blob: {
-              '0%': { transform: 'translate(0px, 0px) scale(1)' },
-              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-              '100%': { transform: 'translate(0px, 0px) scale(1)' },
-            },
-            fadeIn: {
-              '0%': { opacity: '0', transform: 'translateY(10px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            }
-          }
         }
-      }
-    }
-  </script>
+    </script>
 
-  <style>
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #8b5cf6; border-radius: 4px; }
-    
-    /* Animated Background Mesh */
-    .mesh-bg {
-      position: fixed; inset: 0; z-index: -10;
-      background-color: #0f172a; /* Slate 950 base */
-      overflow: hidden;
-    }
-    
-    .mesh-blob {
-      position: absolute;
-      filter: blur(80px);
-      opacity: 0.6;
-      animation: blob 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 50%;
-    }
+    <style>
+        /* Base Styling & Scrollbar */
+        body {
+            background-color: #05050a;
+            color: #f8fafc;
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor for custom one */
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05050a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e1e2f;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
 
-    /* Light mode bg override */
-    body:not(.dark) .mesh-bg {
-      background-color: #f8fafc;
-    }
-    body:not(.dark) .mesh-blob {
-      opacity: 0.4;
-      mix-blend-mode: multiply;
-    }
+        /* Custom Cursor */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: #3b82f6;
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9998;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .cursor-hover .cursor-dot {
+            width: 0;
+            height: 0;
+        }
+        .cursor-hover .cursor-outline {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(59, 130, 246, 0.1);
+            border-color: #3b82f6;
+            backdrop-filter: blur(2px);
+        }
 
-    /* Glass Cards */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-    
-    .dark .glass-card {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(20, 20, 31, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: linear-gradient(145deg, rgba(30,30,47,0.6) 0%, rgba(20,20,31,0.4) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease, scale 0.4s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15);
+        }
 
-    /* Gradient Text */
-    .text-gradient {
-      background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #22d3ee 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-  </style>
+        /* Text Gradients */
+        .text-gradient {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Background Effects */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+        }
+        
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Rotating Text */
+        .txt-rotate > .wrap {
+            border-right: 0.08em solid #3b82f6;
+            padding-right: 2px;
+            animation: blink-caret .75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3b82f6; }
+        }
+
+        /* Connect Pill Custom Styles */
+        .connect-pill {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 6px 16px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            max-width: 140px;
+        }
+        .connect-pill:hover {
+            max-width: 380px;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+        }
+        .connect-text {
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #d1d5db;
+            transition: color 0.3s;
+        }
+        .connect-pill:hover .connect-text {
+            color: #ffffff;
+        }
+        .connect-pill .connect-text i {
+            font-size: 0.75rem;
+            transition: transform 0.3s;
+        }
+        .connect-pill:hover .connect-text i {
+            transform: translateX(2px);
+        }
+        .connect-icons {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            opacity: 0;
+            transform: translateX(15px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0;
+            margin-left: 0;
+            pointer-events: none;
+        }
+        .connect-pill:hover .connect-icons {
+            opacity: 1;
+            transform: translateX(0);
+            width: auto;
+            margin-left: 16px;
+            pointer-events: auto;
+        }
+        .connect-icons a {
+            color: #9ca3af;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .connect-icons a:hover {
+            transform: translateY(-2px);
+        }
+        .connect-icons a[href*="facebook"]:hover { color: #1877f2; text-shadow: 0 0 10px rgba(24,119,242,0.5); }
+        .connect-icons a[href*="instagram"]:hover { color: #e4405f; text-shadow: 0 0 10px rgba(228,64,95,0.5); }
+        .connect-icons a[href*="youtube"]:hover { color: #ff0000; text-shadow: 0 0 10px rgba(255,0,0,0.5); }
+        .connect-icons a[href*="linkedin"]:hover { color: #0a66c2; text-shadow: 0 0 10px rgba(10,102,194,0.5); }
+        .connect-icons a[href*="behance"]:hover { color: #1769ff; text-shadow: 0 0 10px rgba(23,105,255,0.5); }
+        .connect-icons a[href^="mailto"]:hover { color: #3b82f6; text-shadow: 0 0 10px rgba(59,130,246,0.5); }
+
+        /* Project card state on filtered hidden */
+        .project-hidden {
+            display: none !important;
+        }
+
+        /* Hide cursor on touch devices to prevent stuck states */
+        @media (hover: none) and (pointer: coarse) {
+            body { cursor: auto; }
+            .cursor-dot, .cursor-outline { display: none; }
+        }
+    </style>
 </head>
+<body class="antialiased selection:bg-accent-blue selection:text-white relative">
 
-<body class="text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 selection:bg-brand-500 selection:text-white">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-  <div class="mesh-bg">
-    <div class="mesh-blob bg-brand-500 w-96 h-96 top-0 -left-20"></div>
-    <div class="mesh-blob bg-accent-500 w-96 h-96 bottom-0 -right-20 animation-delay-2000"></div>
-    <div class="mesh-blob bg-accent-400 w-80 h-80 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animation-delay-4000"></div>
-  </div>
+    <!-- Fixed Background Elements -->
+    <div class="fixed inset-0 z-[-2] bg-dark-900"></div>
+    <div class="fixed inset-0 z-[-1] bg-grid pointer-events-none"></div>
+    <div class="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-accent-blue glow-orb animate-blob pointer-events-none"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-accent-purple glow-orb animate-blob animation-delay-2000 pointer-events-none"></div>
 
-  <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50 glass-card rounded-full px-6 py-3 shadow-lg flex items-center justify-between transition-all duration-300">
-  <a href="#top" class="font-display font-bold text-xl tracking-tighter text-brand-600 dark:text-brand-400">
-    <img src="IMZ.png" alt="IMZ Logo" class="h-10 w-auto">
-  </a>
-    
-  <div class="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
-    <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About</a>
-    <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Dev Projects</a>
-    <a href="#design" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Design</a>
-    <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Skills</a>
-    <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Experience</a>
-    <a href="#awards" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Awards</a>
-    <a href="#activities" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Activities</a>
-  </div>
+    <header>
+        <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+            <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="glass rounded-2xl px-6 py-3 flex justify-between items-center border border-white/5 shadow-lg">
+                    <a href="#" class="flex items-center gap-2 interactive">
+                        <img src="IMZ.png" alt="IMZ Logo" class="h-10 w-auto object-contain bg-white/90 rounded-md px-2 py-1">
+                    </a>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex space-x-8 items-center text-sm font-medium text-gray-300">
+                        <a href="#about" class="hover:text-white transition-colors interactive">About</a>
+                        <a href="#experience" class="hover:text-white transition-colors interactive">Experience</a>
+                        <a href="#projects" class="hover:text-white transition-colors interactive">Projects</a>
+                        <a href="#creative" class="hover:text-white transition-colors interactive">Creative</a>
+                        <a href="#leadership" class="hover:text-white transition-colors interactive">Leadership</a>
+                        
+                        <!-- Custom Connect Pill integrated directly into header nav -->
+                        <div class="connect-pill interactive">
+                            <span class="connect-text">Let's Talk <i class="fa-solid fa-arrow-right"></i></span>
+                            <div class="connect-icons">
+                                <a href="https://www.facebook.com/ziducherry" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/zid.u1/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="https://www.youtube.com/@ziducherry/featured" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://www.linkedin.com/in/intesab-montasir-zidne90" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="https://www.behance.net/intesabzidne" target="_blank"><i class="fa-brands fa-behance"></i></a>
+                                <a href="mailto:montasirintesab@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
 
-  <div class="flex items-center gap-3">
-     <a href="https://drive.google.com/file/d/17jmJOxrWjPfQGJj1Yudqxkmz9mx5FnH-/view?usp=sharing" target="_blank"
-     class="hidden sm:inline-flex items-center gap-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 px-4 py-2 rounded-full text-xs font-bold transition-all">
-       <span>Resume</span>
-       <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
-    </a>
-    </div>
-</nav>
-
-  <section id="top" class="min-h-screen flex items-center justify-center pt-28 pb-12 px-4">
-    <div class="max-w-6xl w-full grid lg:grid-cols-2 gap-12 items-center">
-      
-      <div class="space-y-6 order-2 lg:order-1 animate-fade-in text-center lg:text-left">
-        <div class="inline-block px-3 py-1 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-600 dark:text-brand-300 text-xs font-semibold tracking-wide uppercase">
-          CSE Student & Content Creator
-        </div>
-        
-        <h1 class="font-display text-5xl sm:text-7xl font-bold leading-[1.1]">
-          Hello, I'm <br />
-          <span class="text-gradient" id="typewriter"></span>
-        </h1>
-        
-        <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-lg leading-relaxed mx-auto lg:mx-0">
-          Bridging the gap between <span class="font-semibold text-slate-900 dark:text-white">technical development</span> and <span class="font-semibold text-slate-900 dark:text-white">market-facing storytelling</span>.
-        </p>
-
-        <div class="flex flex-wrap gap-3 pt-4 justify-center lg:justify-start">
-            <a href="https://www.linkedin.com/in/intesab-montasir-zidne90/" target="_blank" class="p-3 rounded-full glass-card hover:text-[#0077b5] transition-colors hover:-translate-y-1 duration-300" aria-label="LinkedIn">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="https://github.com/ziducherry90" target="_blank" class="p-3 rounded-full glass-card hover:text-black dark:hover:text-white transition-colors hover:-translate-y-1 duration-300" aria-label="GitHub">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            </a>
-            <a href="https://www.behance.net/intesabzidne" target="_blank" class="p-3 rounded-full glass-card hover:text-[#1769ff] transition-colors hover:-translate-y-1 duration-300" aria-label="Behance">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.992 5.365 4.492l.096.536h-7.85c.166 1.714 1.253 3.655 3.228 3.655 1.314 0 2.297-.563 2.802-1.39l2.558 1.302zm-2.846-3.324c-.114-1.385-1.013-2.607-2.548-2.607-1.243 0-2.256.963-2.529 2.607h5.077zm-14.88-5.676v4.618c.677-.315 1.488-.506 2.146-.506 1.631 0 2.923.868 2.923 2.766 0 2.37-1.896 3.118-4.227 3.118h-6.842v-13.882h6.143c2.046 0 3.923.888 3.923 2.96 0 1.558-1.258 2.45-2.316 2.753v.018c1.37.218 1.936 1.157 1.936 2.155h-3.686zm-2.981-2.906h2.17c.928 0 1.442-.423 1.442-1.077 0-.712-.596-1.118-1.353-1.118h-2.259v2.195zm0 4.882h2.518c.95 0 1.644-.45 1.644-1.242 0-.85-.758-1.241-1.611-1.241h-2.551v2.483z"/></svg>
-            </a>
-            <a href="https://www.youtube.com/@ziducherry" target="_blank" class="p-3 rounded-full glass-card hover:text-[#FF0000] transition-colors hover:-translate-y-1 duration-300" aria-label="YouTube">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-5.8 31 31 0 0 0-.5-5.8zM9.75 15.02V8.98l6.25 3.02-6.25 3.02z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/itsmon.zidne25" target="_blank" class="p-3 rounded-full glass-card hover:text-[#1877F2] transition-colors hover:-translate-y-1 duration-300" aria-label="Facebook">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.5 12a10.5 10.5 0 1 0-12.15 10.4v-7.35H7.9V12h2.45V9.55c0-2.42 1.44-3.76 3.64-3.76 1.05 0 2.15.18 2.15.18v2.37h-1.21c-1.19 0-1.56.74-1.56 1.5V12h2.65l-.42 3.05h-2.23v7.35A10.5 10.5 0 0 0 22.5 12z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/zid.u1/" target="_blank" class="p-3 rounded-full glass-card hover:text-[#E4405F] transition-colors hover:-translate-y-1 duration-300" aria-label="Instagram">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.75-.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5z"/></svg>
-            </a>
-            <a href="https://www.tiktok.com/@intesabmontasirzidne?_t=ZS-90Za8K73yLs&_r=1" target="_blank" class="p-3 rounded-full glass-card hover:text-black dark:hover:text-white transition-colors hover:-translate-y-1 duration-300" aria-label="TikTok">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2h2.2c.4 2 1.9 3.8 3.8 4.6V9c-1.7-.1-3.3-.6-4.8-1.5v6.4c0 3.4-2.8 6.1-6.1 6.1S3 17.3 3 13.9c0-3 2.2-5.6 5.1-6V11c-1.1.3-1.9 1.3-1.9 2.5 0 1.4 1.1 2.6 2.6 2.6s2.6-1.2 2.6-2.6V2z"/></svg>
-            </a>
-        </div>
-
-        <div class="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
-          <a href="#contact" class="px-8 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-semibold shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all transform hover:-translate-y-1">
-            Let's Talk
-          </a>
-          <a href="#design" class="px-8 py-3 rounded-full glass-card hover:bg-white/50 dark:hover:bg-slate-800/50 font-semibold transition-all">
-            View Design Work
-          </a>
-        </div>
-      </div>
-
-      <div class="order-1 lg:order-2 flex justify-center relative">
-        <div class="relative w-72 h-72 sm:w-96 sm:h-96">
-          <div class="absolute inset-0 bg-gradient-to-tr from-brand-600 to-accent-400 rounded-full blur-2xl opacity-40 animate-pulse"></div>
-          <img src="image.jpeg" alt="Intesab Montasir Zidne" class="relative z-10 w-full h-full object-cover rounded-[2rem] border-4 border-white/20 shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500">
-          
-          <div class="absolute -bottom-6 -left-6 glass-card p-4 rounded-2xl flex items-center gap-3 animate-bounce shadow-xl z-20 hidden sm:flex">
-            <div class="w-10 h-10 rounded-full bg-brand-100 dark:bg-brand-900 flex items-center justify-center text-xl">🚀</div>
-            <div>
-              <div class="text-xs text-slate-500 dark:text-slate-400">Status</div>
-              <div class="font-bold text-sm">Open to Work</div>
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-gray-300 hover:text-white interactive" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="py-20 px-4">
-    <div class="max-w-6xl mx-auto glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
-        
-        <div class="grid md:grid-cols-3 gap-8 items-center">
             
-            <div class="md:col-span-1 relative flex justify-center md:justify-start">
-                <div class="relative w-full max-w-xs md:max-w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border-4 border-white/30 dark:border-white/10 group">
-                    <img src="About me.jpg" alt="About Intesab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                </div>
-                <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-brand-500/20 rounded-full blur-xl z-[-1]"></div>
-            </div>
-
-            <div class="md:col-span-2 space-y-6">
-                <h2 class="font-display text-4xl font-bold">About Me</h2>
-                <div class="space-y-4 text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                    <p>
-                        I am a <strong>Computer Science & Engineering</strong> undergraduate at United International University with a passion that exists at the intersection of technology and creativity. While I build software and web applications using tools like Java, C, and HTML/JS, I am equally driven by digital storytelling, branding, and community leadership.
-                    </p>
-                    <p>
-                        Beyond the code, I am deeply involved in the campus ecosystem. I have served in key executive roles across robotics, sports, and cultural clubs, refining my skills in leadership, HR, and media management. My love for sports also extends to the field I manage the <strong>Fierce Falcons</strong> cricket team and have served as Director of Operations for <strong>Isotopes FC</strong>.
-                    </p>
-                    <p>
-                        Whether it's designing a poster, managing a team strategy, or deploying a utility web app, I bring energy, leadership, and a user-centric focus to everything I do.
-                    </p>
+            <!-- Mobile Menu Dropdown -->
+            <div class="md:hidden absolute top-full left-0 w-full px-6 py-2 opacity-0 pointer-events-none transition-opacity duration-300" id="mobile-menu">
+                <div class="glass rounded-2xl p-4 flex flex-col space-y-4 text-center border border-white/5 shadow-2xl">
+                    <a href="#about" class="block text-gray-300 hover:text-white py-2 mobile-link">About</a>
+                    <a href="#experience" class="block text-gray-300 hover:text-white py-2 mobile-link">Experience</a>
+                    <a href="#projects" class="block text-gray-300 hover:text-white py-2 mobile-link">Projects</a>
+                    <a href="#creative" class="block text-gray-300 hover:text-white py-2 mobile-link">Creative</a>
+                    <a href="#leadership" class="block text-gray-300 hover:text-white py-2 mobile-link">Leadership</a>
+                    <a href="#contact" class="block text-accent-blue font-medium py-2 mobile-link">Contact</a>
                 </div>
             </div>
+        </nav>
+    </header>
 
-        </div>
-    </div>
-  </section>
+    <main>
+        <section id="home" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Left Column: Text Information & Actions -->
+                    <div class="lg:col-span-7 order-2 lg:order-1 text-center lg:text-left space-y-6">
+                        <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-white/10 text-xs font-medium text-accent-cyan animate-fade-in-up" style="animation-delay: 0.1s;">
+                            <span class="w-2.5 h-2.5 rounded-full bg-accent-cyan animate-pulse"></span>
+                            <span>Open for Opportunities</span>
+                        </div>
 
-  <section id="projects" class="py-20 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="mb-12">
-        <h2 class="font-display text-3xl font-bold mb-2">Featured Dev Projects</h2>
-        <div class="h-1 w-20 bg-gradient-to-r from-brand-500 to-accent-400 rounded-full"></div>
-      </div>
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-white leading-tight animate-fade-in-up" style="animation-delay: 0.2s;">
+                            Intesab Montasir <br class="hidden lg:block"><span class="text-gradient">Zidne</span>
+                        </h1>
+                        
+                        <div class="text-lg md:text-2xl font-medium text-gray-400 h-12 md:h-10 animate-fade-in-up" style="animation-delay: 0.3s;">
+                            I am <span class="txt-rotate text-white" data-period="2000" data-rotate='[ "a Software Developer.", "a CSE Student.", "a Content Creator.", "a Digital Brand Storyteller.", "a Creative Technologist." ]'></span>
+                        </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <div class="group glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-24 h-24 bg-brand-500/10 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-brand-500/20"></div>
-          <div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-300">🚌</div>
-          <h3 class="font-display text-xl font-bold mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">UIU Shuttle Service</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-            A utility web application designed to help students track and view the schedules of the university shuttle service, ensuring easier commute planning.
-          </p>
-          <a href="https://uiu-shuttle-service-schedule.vercel.app/" target="_blank" class="inline-flex items-center text-sm font-semibold text-brand-600 dark:text-brand-400 hover:underline">
-            Live Preview <span class="ml-1">→</span>
-          </a>
-        </div>
+                        <p class="max-w-2xl mx-auto lg:mx-0 text-base md:text-lg text-gray-400 animate-fade-in-up" style="animation-delay: 0.4s;">
+                            “Building digital experiences through code, creativity, and storytelling.”
+                        </p>
 
-        <div class="group glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-24 h-24 bg-accent-500/10 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-accent-500/20"></div>
-          <div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-300">📊</div>
-          <h3 class="font-display text-xl font-bold mb-2 group-hover:text-accent-500 transition-colors">UIU-VC Cup Analysis</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-             Comprehensive data analysis and visualization dashboard for the UIU VC Cup Season 3, presenting team statistics, match results, and performance metrics.
-          </p>
-          <a href="https://ziducherry90.github.io/uiu-vc-cup-s3-analysis/" target="_blank" class="inline-flex items-center text-sm font-semibold text-accent-500 hover:underline">
-            Live Preview <span class="ml-1">→</span>
-          </a>
-        </div>
-
-        <div class="group glass-card rounded-2xl p-6 hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-24 h-24 bg-teal-500/10 rounded-bl-full -mr-4 -mt-4 transition-all group-hover:bg-teal-500/20"></div>
-          <div class="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-300">🏏</div>
-          <h3 class="font-display text-xl font-bold mb-2 group-hover:text-teal-500 transition-colors">T10 Cricket Manager</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-            Dynamic web portal for managing T10 cricket tournaments, featuring team registration management, automated match scheduling, and score updates.
-          </p>
-          <a href="https://t10-cricket.vercel.app/" target="_blank" class="inline-flex items-center text-sm font-semibold text-teal-500 hover:underline">
-            Live Preview <span class="ml-1">→</span>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  
-  <!-- NEW DESIGN & BRANDING SECTION -->
-  <section id="design" class="py-20 px-4 bg-slate-50/50 dark:bg-slate-900/30">
-    <div class="max-w-6xl mx-auto">
-      <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <h2 class="font-display text-3xl font-bold mb-2"><span class="text-gradient">Design & Branding</span></h2>
-          <div class="h-1 w-20 bg-gradient-to-r from-brand-500 to-accent-400 rounded-full"></div>
-          <p class="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl text-sm md:text-base">A curated selection of my visual identities, media kits, packaging, and promotional designs crafted with creativity and strategy.</p>
-        </div>
-        <a href="https://www.behance.net/intesabzidne" target="_blank" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#1769ff] hover:bg-blue-700 text-white font-medium text-sm transition-all shadow-md">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.992 5.365 4.492l.096.536h-7.85c.166 1.714 1.253 3.655 3.228 3.655 1.314 0 2.297-.563 2.802-1.39l2.558 1.302zm-2.846-3.324c-.114-1.385-1.013-2.607-2.548-2.607-1.243 0-2.256.963-2.529 2.607h5.077zm-14.88-5.676v4.618c.677-.315 1.488-.506 2.146-.506 1.631 0 2.923.868 2.923 2.766 0 2.37-1.896 3.118-4.227 3.118h-6.842v-13.882h6.143c2.046 0 3.923.888 3.923 2.96 0 1.558-1.258 2.45-2.316 2.753v.018c1.37.218 1.936 1.157 1.936 2.155h-3.686zm-2.981-2.906h2.17c.928 0 1.442-.423 1.442-1.077 0-.712-.596-1.118-1.353-1.118h-2.259v2.195zm0 4.882h2.518c.95 0 1.644-.45 1.644-1.242 0-.85-.758-1.241-1.611-1.241h-2.551v2.483z"/></svg>
-            Follow on Behance
-        </a>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <!-- Design Project 1 -->
-        <div class="group flex flex-col relative rounded-2xl overflow-hidden glass-card hover:-translate-y-2 hover:shadow-xl dark:hover:shadow-brand-500/10 transition-all duration-300">
-            <div class="w-full bg-slate-100 dark:bg-slate-800/50">
-                <iframe src="https://www.behance.net/embed/project/248237139?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-            <div class="p-6 border-t border-slate-200/50 dark:border-white/5 bg-white/40 dark:bg-slate-900/40 flex-grow flex flex-col justify-between">
-                <div>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-brand-500/10 text-brand-600 dark:text-brand-400 text-[10px] font-bold rounded uppercase tracking-wider">Sports Branding</span>
-                        <span class="px-2 py-1 bg-brand-500/10 text-brand-600 dark:text-brand-400 text-[10px] font-bold rounded uppercase tracking-wider">Social Media</span>
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 animate-fade-in-up" style="animation-delay: 0.5s;">
+                            <a href="#projects" class="interactive group relative px-8 py-4 bg-white text-black font-semibold rounded-full overflow-hidden w-full sm:w-auto text-center">
+                                <span class="relative z-10 flex items-center justify-center gap-2">
+                                    View Projects <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                </span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-accent-blue to-accent-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <span class="absolute inset-0 bg-gradient-to-r from-accent-blue to-accent-purple opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 z-0"></span>
+                            </a>
+                            <a href="https://drive.google.com/file/d/17jmJOxrWjPfQGJj1Yudqxkmz9mx5FnH-/view?usp=sharing" target="_blank" class="interactive px-8 py-4 glass rounded-full font-semibold hover:bg-white/10 transition-colors border border-white/10 w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                                <i class="fas fa-download text-accent-cyan"></i> Resume
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-xl leading-tight mb-2 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">UIU VC Cup S3 Branding</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">Complete visual identity and media kit for the UIU VC Cup Season 3. This extensive project included designing match day graphics, player stat cards, and promotional banners to drive high tournament engagement.</p>
-                </div>
-                <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700/50 flex justify-between items-center">
-                   <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">View Project Details</span>
-                   <span class="text-brand-500 font-bold group-hover:translate-x-1 transition-transform">→</span>
-                </div>
-            </div>
-        </div>
 
-        <!-- Design Project 2 -->
-        <div class="group flex flex-col relative rounded-2xl overflow-hidden glass-card hover:-translate-y-2 hover:shadow-xl dark:hover:shadow-brand-500/10 transition-all duration-300">
-            <div class="w-full bg-slate-100 dark:bg-slate-800/50">
-                <iframe src="https://www.behance.net/embed/project/248058715?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-            <div class="p-6 border-t border-slate-200/50 dark:border-white/5 bg-white/40 dark:bg-slate-900/40 flex-grow flex flex-col justify-between">
-                <div>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 text-[10px] font-bold rounded uppercase tracking-wider">Print Design</span>
-                        <span class="px-2 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-400 text-[10px] font-bold rounded uppercase tracking-wider">Retail</span>
+                    <!-- Right Column: Perfect Square Photo -->
+                    <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in-up">
+                        <div class="relative w-full max-w-[320px] sm:max-w-[360px] md:max-w-[400px] aspect-square">
+                            <!-- Background Glow Orb behind the photo -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue to-accent-purple opacity-30 blur-xl"></div>
+                            
+                            <!-- Square Frame container -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/10 to-accent-purple/10 border border-white/10 shadow-2xl"></div>
+                            
+                            <!-- Perfect square image crop -->
+                            <div class="absolute inset-0 bg-dark-800 border border-white/10 overflow-hidden shadow-2xl group">
+                                <img src="image.jpeg" alt="Intesab Montasir Zidne" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark-900/60 via-transparent to-transparent"></div>
+                            </div>
+
+                            <!-- Floating status tag -->
+                            <div class="absolute -bottom-3 -right-3 glass px-4 py-2 rounded-2xl flex items-center gap-2 border border-white/10 shadow-xl z-20">
+                                <span class="w-2.5 h-2.5 rounded-full bg-accent-cyan animate-pulse"></span>
+                                <span class="text-[10px] font-bold tracking-widest text-white uppercase">Available</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-xl leading-tight mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">Seasonal Retail Catalog</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">A vibrant and strategically laid out promotional catalog designed to highlight seasonal retail products. Focused on clean typography, dynamic product arrangement, and brand consistency.</p>
-                </div>
-                <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700/50 flex justify-between items-center">
-                   <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">View Project Details</span>
-                   <span class="text-pink-500 font-bold group-hover:translate-x-1 transition-transform">→</span>
+
                 </div>
             </div>
-        </div>
-
-        <!-- Design Project 3 -->
-        <div class="group flex flex-col relative rounded-2xl overflow-hidden glass-card hover:-translate-y-2 hover:shadow-xl dark:hover:shadow-brand-500/10 transition-all duration-300">
-            <div class="w-full bg-slate-100 dark:bg-slate-800/50">
-                <iframe src="https://www.behance.net/embed/project/247986947?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-            <div class="p-6 border-t border-slate-200/50 dark:border-white/5 bg-white/40 dark:bg-slate-900/40 flex-grow flex flex-col justify-between">
-                <div>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-teal-500/10 text-teal-600 dark:text-teal-400 text-[10px] font-bold rounded uppercase tracking-wider">Packaging</span>
-                        <span class="px-2 py-1 bg-teal-500/10 text-teal-600 dark:text-teal-400 text-[10px] font-bold rounded uppercase tracking-wider">Identity</span>
-                    </div>
-                    <h3 class="font-bold text-xl leading-tight mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Brand Identity & Packaging</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">End-to-end product packaging and visual identity design. Emphasizes a modern, premium aesthetic that communicates product quality while providing a memorable unboxing experience.</p>
-                </div>
-                <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700/50 flex justify-between items-center">
-                   <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">View Project Details</span>
-                   <span class="text-teal-500 font-bold group-hover:translate-x-1 transition-transform">→</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Design Project 4 -->
-        <div class="group flex flex-col relative rounded-2xl overflow-hidden glass-card hover:-translate-y-2 hover:shadow-xl dark:hover:shadow-brand-500/10 transition-all duration-300 lg:col-span-1 md:col-span-1">
-            <div class="w-full bg-slate-100 dark:bg-slate-800/50">
-                <iframe src="https://www.behance.net/embed/project/247960597?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-            <div class="p-6 border-t border-slate-200/50 dark:border-white/5 bg-white/40 dark:bg-slate-900/40 flex-grow flex flex-col justify-between">
-                <div>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 text-[10px] font-bold rounded uppercase tracking-wider">Social Media</span>
-                        <span class="px-2 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-400 text-[10px] font-bold rounded uppercase tracking-wider">Sports</span>
-                    </div>
-                    <h3 class="font-bold text-xl leading-tight mb-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">Sports Branding Kit</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">A versatile and dynamic social media graphic kit tailored specifically for sports teams. Features easily adaptable templates for fixtures, final scores, and player announcements.</p>
-                </div>
-                <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700/50 flex justify-between items-center">
-                   <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">View Project Details</span>
-                   <span class="text-orange-500 font-bold group-hover:translate-x-1 transition-transform">→</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Design Project 5 -->
-        <div class="group flex flex-col relative rounded-2xl overflow-hidden glass-card hover:-translate-y-2 hover:shadow-xl dark:hover:shadow-brand-500/10 transition-all duration-300 md:col-span-2 lg:col-span-1">
-            <div class="w-full bg-slate-100 dark:bg-slate-800/50">
-                <iframe src="https://www.behance.net/embed/project/247927641?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-            <div class="p-6 border-t border-slate-200/50 dark:border-white/5 bg-white/40 dark:bg-slate-900/40 flex-grow flex flex-col justify-between">
-                <div>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="px-2 py-1 bg-red-500/10 text-red-600 dark:text-red-400 text-[10px] font-bold rounded uppercase tracking-wider">Advertising</span>
-                        <span class="px-2 py-1 bg-red-500/10 text-red-600 dark:text-red-400 text-[10px] font-bold rounded uppercase tracking-wider">FMCG</span>
-                    </div>
-                    <h3 class="font-bold text-xl leading-tight mb-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">Tajmahal Foods Mega Sale</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">High-conversion promotional banners crafted for a major retail campaign. Designed to capture attention instantly and effectively drive foot traffic and retail sales.</p>
-                </div>
-                <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700/50 flex justify-between items-center">
-                   <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">View Project Details</span>
-                   <span class="text-red-500 font-bold group-hover:translate-x-1 transition-transform">→</span>
-                </div>
-            </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="py-20 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="mb-12">
-        <h2 class="font-display text-3xl font-bold mb-2">Skills</h2>
-        <div class="h-1 w-20 bg-gradient-to-r from-brand-500 to-accent-400 rounded-full"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="glass-card rounded-2xl p-6 col-span-1 md:col-span-2">
-          <h3 class="text-lg font-bold mb-6 flex items-center gap-2">Technical Skills</h3>
-          
-          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-5">
-              
-              <div>
-                  <div class="flex justify-between mb-1">
-                      <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Java</span>
-                      <span class="text-xs font-mono text-slate-500">80%</span>
-                  </div>
-                  <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                      <div class="bg-brand-500 h-2 rounded-full" style="width: 80%"></div>
-                  </div>
-              </div>
-
-              <div>
-                  <div class="flex justify-between mb-1">
-                      <span class="text-sm font-medium text-slate-700 dark:text-slate-300">C Programming</span>
-                      <span class="text-xs font-mono text-slate-500">75%</span>
-                  </div>
-                  <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                      <div class="bg-brand-500 h-2 rounded-full" style="width: 75%"></div>
-                  </div>
-              </div>
-
-              <div>
-                  <div class="flex justify-between mb-1">
-                      <span class="text-sm font-medium text-slate-700 dark:text-slate-300">HTML</span>
-                      <span class="text-xs font-mono text-slate-500">85%</span>
-                  </div>
-                  <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                      <div class="bg-brand-500 h-2 rounded-full" style="width: 85%"></div>
-                  </div>
-              </div>
-
-              <div>
-                  <div class="flex justify-between mb-1">
-                      <span class="text-sm font-medium text-slate-700 dark:text-slate-300">VS Code</span>
-                      <span class="text-xs font-mono text-slate-500">90%</span>
-                  </div>
-                  <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                      <div class="bg-accent-400 h-2 rounded-full" style="width: 90%"></div>
-                  </div>
-              </div>
-
-              <div>
-                  <div class="flex justify-between mb-1">
-                      <span class="text-sm font-medium text-slate-700 dark:text-slate-300">MS Office</span>
-                      <span class="text-xs font-mono text-slate-500">85%</span>
-                  </div>
-                  <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                      <div class="bg-accent-400 h-2 rounded-full" style="width: 85%"></div>
-                  </div>
-              </div>
-
-              <div>
-                  <div class="flex justify-between mb-1">
-                      <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Canva</span>
-                      <span class="text-xs font-mono text-slate-500">95%</span>
-                  </div>
-                  <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                      <div class="bg-teal-500 h-2 rounded-full" style="width: 95%"></div>
-                  </div>
-              </div>
-
-              <div>
-                  <div class="flex justify-between mb-1">
-                      <span class="text-sm font-medium text-slate-700 dark:text-slate-300">CapCut</span>
-                      <span class="text-xs font-mono text-slate-500">90%</span>
-                  </div>
-                  <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                      <div class="bg-teal-500 h-2 rounded-full" style="width: 90%"></div>
-                  </div>
-              </div>
-
-              <div>
-                  <div class="flex justify-between mb-1">
-                      <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Adobe Illustrator & Photoshop (Basic)</span>
-                      <span class="text-xs font-mono text-slate-500">40%</span>
-                  </div>
-                  <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                      <div class="bg-accent-500 h-2 rounded-full" style="width: 40%"></div>
-                  </div>
-              </div>
-               <div>
-                  <div class="flex justify-between mb-1">
-                      <span class="text-sm font-medium text-slate-700 dark:text-slate-300">SEO & Social</span>
-                      <span class="text-xs font-mono text-slate-500">75%</span>
-                  </div>
-                  <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                      <div class="bg-brand-400 h-2 rounded-full" style="width: 75%"></div>
-                  </div>
-              </div>
-
-          </div>
-        </div>
-
-        <div class="glass-card rounded-2xl p-6">
-          <h3 class="text-lg font-bold mb-6 flex items-center gap-2">Core Competencies</h3>
-          <div class="space-y-5">
-              
-             <div>
-                <div class="flex justify-between mb-1">
-                    <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Communication</span>
-                    <span class="text-xs font-mono text-slate-500">95%</span>
-                </div>
-                <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                    <div class="bg-accent-500 h-2 rounded-full" style="width: 95%"></div>
-                </div>
-             </div>
-
-             <div>
-                <div class="flex justify-between mb-1">
-                    <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Leadership</span>
-                    <span class="text-xs font-mono text-slate-500">90%</span>
-                </div>
-                <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                    <div class="bg-accent-500 h-2 rounded-full" style="width: 90%"></div>
-                </div>
-             </div>
-
-             <div>
-                <div class="flex justify-between mb-1">
-                    <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Creativity</span>
-                    <span class="text-xs font-mono text-slate-500">85%</span>
-                </div>
-                <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                    <div class="bg-accent-500 h-2 rounded-full" style="width: 85%"></div>
-                </div>
-             </div>
-
-             <div>
-                <div class="flex justify-between mb-1">
-                    <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Problem-Solving</span>
-                    <span class="text-xs font-mono text-slate-500">80%</span>
-                </div>
-                <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                    <div class="bg-accent-500 h-2 rounded-full" style="width: 80%"></div>
-                </div>
-             </div>
-
-             <div>
-                <div class="flex justify-between mb-1">
-                    <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Teamwork</span>
-                    <span class="text-xs font-mono text-slate-500">90%</span>
-                </div>
-                <div class="w-full bg-slate-200 rounded-full h-2 dark:bg-slate-700">
-                    <div class="bg-accent-500 h-2 rounded-full" style="width: 90%"></div>
-                </div>
-             </div>
-
-          </div>
-        </div>
-
-         <div class="glass-card rounded-2xl p-6 col-span-1 md:col-span-3">
-            <h3 class="text-lg font-bold mb-4 flex items-center gap-2">Hobbies & Interests</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4">
-                <div class="text-center p-3 rounded-xl bg-slate-50/50 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 transition-colors">Blogging/Vlogging</div>
-                <div class="text-center p-3 rounded-xl bg-slate-50/50 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 transition-colors">Traveling</div>
-                <div class="text-center p-3 rounded-xl bg-slate-50/50 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 transition-colors">Gaming</div>
-                <div class="text-center p-3 rounded-xl bg-slate-50/50 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 transition-colors">Photography</div>
-                <div class="text-center p-3 rounded-xl bg-slate-50/50 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 transition-colors">Videography</div>
-                <div class="text-center p-3 rounded-xl bg-slate-50/50 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 transition-colors">Sports</div>
-                <div class="text-center p-3 rounded-xl bg-slate-50/50 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 transition-colors">Volunteering</div>
-            </div>
-          </div>
-
-      </div>
-    </div>
-  </section>
-
- <section id="experience" class="py-20 px-4">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-        
-        <div>
-            <div class="mb-8">
-                <h2 class="font-display text-3xl font-bold mb-2">Work Experience</h2>
-                <div class="h-1 w-20 bg-brand-500 rounded-full"></div>
-            </div>
-
-            <div class="space-y-8 relative pl-6 border-l-2 border-slate-200 dark:border-slate-800">
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white dark:border-slate-900"></div>
-                    <span class="text-xs font-mono text-brand-600 dark:text-brand-400 mb-1 block">Dec 2025 – Present</span>
-                    <h3 class="text-lg font-bold">Social Media Manager (Remote)</h3>
-                    <p class="text-sm opacity-70 mb-2">Tajmahal Foods (Canada)</p>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Leading digital strategy for Scarborough and Ajax branches. Designing promotional graphics and video content while managing community engagement.</p>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white dark:border-slate-900"></div>
-                    <span class="text-xs font-mono text-brand-600 dark:text-brand-400 mb-1 block">Feb 2026 – April 2026</span>
-                    <h3 class="text-lg font-bold">Call Agent (Part-time | Remote)</h3>
-                    <p class="text-sm opacity-70 mb-2">Exomart.com.bd</p>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Optimized high-volume Ramadan/Eid operations by managing omnichannel communications, processing accurate orders, and maintaining professional customer relationships to consistently meet daily sales targets.</p>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white dark:border-slate-900"></div>
-                    <span class="text-xs font-mono text-brand-600 dark:text-brand-400 mb-1 block">Jan 2026 – Feb 2026</span>
-                    <h3 class="text-lg font-bold">Video Editor (Intern)</h3>
-                    <p class="text-sm opacity-70 mb-2">Mobile Club</p>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Produced high-impact, mobile-optimized video content by combining creative storytelling with advanced editing, color correction, and collaborative styling to maintain professional brand standards.</p>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white dark:border-slate-900"></div>
-                    <span class="text-xs font-mono text-brand-600 dark:text-brand-400 mb-1 block">Nov 2025 – Dec 2025</span>
-                    <h3 class="text-lg font-bold">Former Campus Ambassador</h3>
-                    <p class="text-sm opacity-70 mb-2">Linexis-It Institute</p>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Represented Linexis IT at UIU, fostering relationships between the student body and the company. (ID: LCA-005)</p>
-                </div>
-
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white dark:border-slate-900"></div>
-                    <span class="text-xs font-mono text-brand-600 dark:text-brand-400 mb-1 block">May 2025 – Oct 2025</span>
-                    <h3 class="text-lg font-bold">Jr. Consultant</h3>
-                    <p class="text-sm opacity-70 mb-2">TripTakerz</p>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Managed visa processing and documentation; resolved inquiries via social media and IP calls.</p>
-                </div>
-                
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-brand-500 border-4 border-white dark:border-slate-900"></div>
-                    <span class="text-xs font-mono text-brand-600 dark:text-brand-400 mb-1 block">Jun 2023 – Apr 2025</span>
-                    <h3 class="text-lg font-bold">Content Writer & Creative</h3>
-                    <p class="text-sm opacity-70 mb-2">Cholokini.com</p>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Developed blog posts and social media content; managed website updates and brand campaigns.</p>
-                </div>
-            </div>
-        </div>
-
-        <div>
-    <div class="mb-8">
-        <h2 class="font-display text-3xl font-bold mb-2">Education</h2>
-        <div class="h-1 w-20 bg-accent-500 rounded-full"></div>
-    </div>
-
-    <div class="space-y-4">
-        <div class="glass-card p-5 rounded-xl border-l-4 border-l-brand-500 hover:translate-x-1 transition-transform flex items-center justify-between">
-            <div class="space-y-1">
-                <h3 class="font-bold text-lg">B.Sc. in CSE</h3>
-                <p class="text-sm opacity-80 font-medium">United International University</p>
-                <p class="text-xs text-slate-500">2022 – Present</p>
-            </div>
-            <div class="bg-white p-1 rounded-lg shadow-sm">
-                <img src="uiu-logo.png" alt="UIU Logo" class="h-14 w-auto object-contain">
-            </div>
-        </div>
-
-        <div class="glass-card p-5 rounded-xl border-l-4 border-l-slate-400 dark:border-l-slate-600 hover:translate-x-1 transition-transform flex items-center justify-between">
-            <div class="space-y-1">
-                <h3 class="font-bold text-lg">Higher Secondary (Science)</h3>
-                <p class="text-sm opacity-80 font-medium">Dhaka Imperial College</p>
-                <div class="flex items-center gap-2">
-                    <span class="px-2 py-0.5 bg-brand-500/10 text-brand-600 dark:text-brand-400 text-[10px] font-bold rounded">GPA 5.00</span>
-                    <span class="text-xs text-slate-500">2019 – 2021</span>
-                </div>
-            </div>
-            <div class="bg-white p-1 rounded-lg shadow-sm">
-                <img src="Dhaka_Imperial_College.jpg" alt="Dhaka Imperial College Logo" class="h-14 w-auto object-contain">
-            </div>
-        </div>
-
-        <div class="glass-card p-5 rounded-xl border-l-4 border-l-slate-400 dark:border-l-slate-600 hover:translate-x-1 transition-transform flex items-center justify-between">
-            <div class="space-y-1">
-                <h3 class="font-bold text-lg">Secondary School (Science)</h3>
-                <p class="text-sm opacity-80 font-medium">National Bank Public School</p>
-                <div class="flex items-center gap-2">
-                    <span class="px-2 py-0.5 bg-brand-500/10 text-brand-600 dark:text-brand-400 text-[10px] font-bold rounded">GPA 4.72</span>
-                    <span class="text-xs text-slate-500">2007 – 2019</span>
-                </div>
-            </div>
-            <div class="bg-white p-1 rounded-lg shadow-sm">
-                <img src="nbpsc.jpg" alt="National Bank Public School Logo" class="h-14 w-auto object-contain">
-            </div>
-        </div>
-    </div>
-</div>
- </section>
-
-<section id="awards" class="py-20 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="mb-12">
-        <h2 class="font-display text-3xl font-bold mb-2">Honors & Awards</h2>
-        <div class="h-1 w-20 bg-gradient-to-r from-brand-500 to-accent-400 rounded-full"></div>
-      </div>
-
-      <div class="glass-card p-8 rounded-2xl relative overflow-hidden">
-        <div class="absolute top-0 right-0 p-6 opacity-5 text-9xl rotate-12">🏅 🏆</div>
-        <div class="grid md:grid-cols-2 gap-y-4 gap-x-12">
-            <div class="flex items-start gap-3">
-                <span class="text-2xl mt-1">🏆</span>
-                <div>
-                    <h4 class="font-bold text-lg">"Oddity Special" Award</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Recognition for exceptional creative contribution.</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3">
-                <span class="text-2xl mt-1">🎗️</span>
-                <div>
-                    <h4 class="font-bold text-lg">Best Volunteer</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Youth For Smile 2021</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3">
-                <span class="text-2xl mt-1">🌍</span>
-                <div>
-                    <h4 class="font-bold text-lg">International Entrepreneurs Day Awards</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">2023 Recipient</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3">
-                <span class="text-2xl mt-1">🤝</span>
-                <div>
-                    <h4 class="font-bold text-lg">Zero Missing Children Network</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">2025 Recognition</p>
-                </div>
-            </div>
-            <div class="flex items-start gap-3 md:col-span-2">
-                <span class="text-2xl mt-1">📸</span>
-                <div>
-                    <h4 class="font-bold text-lg">3rd Place – DSLR Photography Contest</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">MGGHS Online & Technology Fiesta 2020</p>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="activities" class="py-20 px-4 bg-slate-50/50 dark:bg-slate-900/50">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="font-display text-3xl text-center font-bold mb-10">Leadership & Club Activities</h2>
-        
-        <div class="grid lg:grid-cols-2 gap-8">
             
-            <div>
-                 <h3 class="font-bold text-xl mb-6 text-brand-600 dark:text-brand-400 border-b pb-2 border-slate-200 dark:border-slate-700">Executive & Management</h3>
-                 <div class="space-y-6">
-                    <div class="glass-card p-5 rounded-xl border-l-4 border-l-purple-500">
-                        <div class="flex justify-between items-start mb-1">
-                            <h4 class="font-bold">Branding & Graphics Secretary</h4>
-                            <span class="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded">Present</span>
-                        </div>
-                        <p class="text-xs font-semibold opacity-75 mb-2">UIU Robotics</p>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">Spearheading visual identity, ensuring brand consistency, and supervising the design team for high-quality assets.</p>
-                    </div>
-
-                    <div class="glass-card p-5 rounded-xl border-l-4 border-l-teal-500">
-                        <div class="flex justify-between items-start mb-1">
-                            <h4 class="font-bold">Executive, Communications</h4>
-                            <span class="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded">Present</span>
-                        </div>
-                        <p class="text-xs font-semibold opacity-75 mb-2">Environment & Children Rights Save Organization</p>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">Leading strategic communication to raise awareness on environmental/child welfare issues.</p>
-                    </div>
-
-                    <div class="glass-card p-5 rounded-xl border-l-4 border-l-green-500">
-                        <div class="flex justify-between items-start mb-1">
-                            <h4 class="font-bold">Contributor</h4>
-                            <span class="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded">Present</span>
-                        </div>
-                        <p class="text-xs font-semibold opacity-75 mb-2">Bangladesh Football Live</p>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">Creating engaging sports content, match analyses, and covering football events.</p>
-                    </div>
-
-                    <div class="glass-card p-5 rounded-xl border-l-4 border-l-orange-500">
-                        <div class="flex justify-between items-start mb-1">
-                            <h4 class="font-bold">Asst. Head of HR</h4>
-                            <span class="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded">Present</span>
-                        </div>
-                        <p class="text-xs font-semibold opacity-75 mb-2">UIU Sports Club</p>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">Overseeing recruitment, HR operations, and promoting teamwork culture.</p>
-                    </div>
-
-                    <div class="glass-card p-5 rounded-xl border-l-4 border-l-blue-500">
-                        <h4 class="font-bold mb-2">Sports Team Management</h4>
-                        <ul class="text-sm space-y-2">
-                            <li class="flex justify-between"><span><strong>Team Manager</strong>, Fierce Falcons (Cricket)</span> <span class="opacity-60 text-xs"><span class="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded">Jun 2025-Present</span></li>
-                            <li class="flex justify-between"><span><strong>Director of Ops</strong>, Isotopes FC</span> <span class="opacity-60 text-xs"><span class="text-xs bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded">2022-Present</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="glass-card p-5 rounded-xl opacity-90">
-                        <h4 class="font-bold text-sm mb-3 opacity-70 uppercase tracking-wide">Past Executive Roles</h4>
-                        <ul class="space-y-3 text-sm">
-                             <li>
-                                <div class="font-semibold">Sub Executive — UIU Robotics Club</div>
-                                <div class="text-xs opacity-60">Dec 2022 – Oct 2025</div>
-                            </li>
-                             <li>
-                                <div class="font-semibold">Head of IT, Media — UIU Theatre & Film Club</div>
-                                <div class="text-xs opacity-60">Aug 2025</div>
-                            </li>
-                             <li>
-                                <div class="font-semibold">Executive — UIU Cultural Club</div>
-                                <div class="text-xs opacity-60">Nov 2024 – Dec 2024</div>
-                            </li>
-                             <li>
-                                <div class="font-semibold">Campus Director — Dhaka Imperial College</div>
-                                <div class="text-xs opacity-60">Jul 2020 – Jun 2021</div>
-                            </li>
-                             <li>
-                                <div class="font-semibold">Graphics Secretary — Spectrum Science Club</div>
-                                <div class="text-xs opacity-60">Jun 2020 – Oct 2020</div>
-                            </li>
-                        </ul>
-                    </div>
-                 </div>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce opacity-30">
+                <span class="text-xs uppercase tracking-widest mb-1 text-gray-500">Scroll</span>
+                <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
             </div>
+        </section>
 
-            <div>
-                <h3 class="font-bold text-xl mb-6 text-accent-500 border-b pb-2 border-slate-200 dark:border-slate-700">Event Volunteering & Organizing</h3>
-                
-                <div class="relative border-l-2 border-slate-200 dark:border-slate-700 ml-3 space-y-8 pl-6">
+        <section id="about" class="py-24 relative border-t border-white/5 bg-dark-800/30">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-accent-500 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">Nov 2025</div>
-                        <h4 class="font-bold text-sm">Volunteer — UIU VC Cup Football Tournament</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Logistics, crowd control, and branding support for high-attendance matches.</p>
+                    <div class="reveal order-2 lg:order-1">
+                        <div class="relative w-full aspect-square max-w-md mx-auto">
+                            <!-- Abstract Graphic / Image Placeholder -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-accent-blue/20 to-accent-purple/20 rounded-3xl transform rotate-6 scale-105 glass-card"></div>
+                            <div class="absolute inset-0 bg-dark-800 rounded-3xl border border-white/10 overflow-hidden shadow-2xl flex items-center justify-center group">
+                                <img src="About me.jpg" alt="About Intesab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-60"></div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">Aug 2025</div>
-                        <h4 class="font-bold text-sm">Organizer — UIU CSE FEST 2025</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Organized Robo Soccer & Line Follower events; coordinated schedules.</p>
+                    <div class="reveal order-1 lg:order-2 space-y-6">
+                        <h2 class="text-sm font-bold tracking-widest text-accent-blue uppercase">About Me</h2>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Engineering logic. <br>Designing emotion.</h3>
+                        
+                        <div class="space-y-4 text-gray-400 leading-relaxed text-sm md:text-base">
+                            <p>
+                                I am a <strong class="text-white">Computer Science & Engineering</strong> undergraduate at United International University with a passion that exists at the intersection of technology and creativity. While I build software and web applications using tools like Java, C, and HTML/JS, I am equally driven by digital storytelling, branding, and community leadership.
+                            </p>
+                            <p>
+                                Beyond the code, I am deeply involved in the campus ecosystem. I have served in key executive roles across robotics, sports, and cultural clubs, refining my skills in leadership, HR, and media management. My love for sports also extends to the field—I manage the <strong>Fierce Falcons</strong> cricket team and have served as Director of Operations for <strong>Isotopes FC</strong>.
+                            </p>
+                            <p>
+                                Whether it's designing a poster, managing a team strategy, or deploying a utility web app, I bring energy, leadership, and a user-centric focus to everything I do.
+                            </p>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">Mar 2025 – Aug 2025</div>
-                        <h4 class="font-bold text-sm">Institutional Rep — Sanskaran Foundation</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Represented the foundation in collaborations; planned community development programs.</p>
+                <!-- Education Grid -->
+                <div class="mt-24 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-accent-purple uppercase mb-8 text-center">Academic Background</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="glass-card p-6 rounded-2xl border-t border-t-accent-blue">
+                            <i class="fas fa-graduation-cap text-2xl text-accent-blue mb-4"></i>
+                            <h4 class="text-lg font-bold text-white mb-1">B.Sc. in CSE</h4>
+                            <p class="text-sm text-gray-400 mb-3">United International University</p>
+                            <div class="inline-block px-2 py-1 bg-white/5 rounded text-xs text-gray-300">2022 – Present</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border-t border-t-gray-500">
+                            <i class="fas fa-book text-2xl text-gray-400 mb-4"></i>
+                            <h4 class="text-lg font-bold text-white mb-1">Higher Secondary (Science)</h4>
+                            <p class="text-sm text-gray-400 mb-3">Dhaka Imperial College</p>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-white/5 rounded text-xs font-bold text-accent-cyan">GPA 5.00</span>
+                                <span class="text-xs text-gray-500">2019 – 2021</span>
+                            </div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border-t border-t-gray-500">
+                            <i class="fas fa-school text-2xl text-gray-400 mb-4"></i>
+                            <h4 class="text-lg font-bold text-white mb-1">Secondary School (Science)</h4>
+                            <p class="text-sm text-gray-400 mb-3">National Bank Public School</p>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-1 bg-white/5 rounded text-xs font-bold text-accent-purple">GPA 4.72</span>
+                                <span class="text-xs text-gray-500">2007 – 2019</span>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-24 relative bg-dark-900 border-t border-white/5">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-accent-cyan uppercase mb-2">My Journey</h2>
+                    <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Professional Experience</h3>
+                </div>
+
+                <div class="relative border-l border-white/10 ml-3 md:ml-0 md:pl-0">
                     
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">Mar 2025 – Present</div>
-                        <h4 class="font-bold text-sm">Organizer — Zero Missing Children Summit</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Managed venue logistics, speaker coordination, and event promotion.</p>
+                    <div class="mb-10 ml-8 md:ml-10 reveal relative">
+                        <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[43px] md:-left-[52px] ring-4 ring-dark-900 bg-accent-blue"></span>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold text-white">Social Media Manager (Remote)</h3>
+                                <span class="text-xs font-mono text-accent-cyan px-2 py-1 bg-white/5 rounded w-max">Dec 2025 – Present</span>
+                            </div>
+                            <div class="block mb-4 text-sm font-medium text-gray-400">Tajmahal Foods (Canada)</div>
+                            <p class="text-sm text-gray-400 leading-relaxed">Leading digital strategy for Scarborough and Ajax branches. Designing promotional graphics and video content while managing community engagement and market-facing storytelling.</p>
+                        </div>
                     </div>
 
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">Jan 2025</div>
-                        <h4 class="font-bold text-sm">Organizer & Branding — UIU Comedy Carnival</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Designed posters/flyers, managed social media, and coordinated performers.</p>
+                    <div class="mb-10 ml-8 md:ml-10 reveal relative">
+                        <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[43px] md:-left-[52px] ring-4 ring-dark-900 bg-white/10"></span>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold text-white">Call Agent (Part-time | Remote)</h3>
+                                <span class="text-xs font-mono text-gray-400 px-2 py-1 bg-white/5 rounded w-max">Feb 2026 – Apr 2026</span>
+                            </div>
+                            <div class="block mb-4 text-sm font-medium text-accent-purple">Exomart.com.bd</div>
+                            <p class="text-sm text-gray-400 leading-relaxed">Optimized high-volume Ramadan/Eid operations by managing omnichannel communications, processing accurate orders, and maintaining professional customer relationships to consistently meet daily sales targets.</p>
+                        </div>
                     </div>
 
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">Jan 2025</div>
-                        <h4 class="font-bold text-sm">Volunteer — WROBd 2025 Dhaka Regional</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Assisted judges and provided technical support to robotics teams.</p>
+                    <div class="mb-10 ml-8 md:ml-10 reveal relative">
+                        <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[43px] md:-left-[52px] ring-4 ring-dark-900 bg-white/10"></span>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold text-white">Video Editor (Intern)</h3>
+                                <span class="text-xs font-mono text-gray-400 px-2 py-1 bg-white/5 rounded w-max">Jan 2026 – Feb 2026</span>
+                            </div>
+                            <div class="block mb-4 text-sm font-medium text-accent-cyan">Mobile Club</div>
+                            <p class="text-sm text-gray-400 leading-relaxed">Produced high-impact, mobile-optimized video content by combining creative storytelling with advanced editing, color correction, and collaborative styling to maintain professional brand standards.</p>
+                        </div>
                     </div>
 
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">Dec 2024</div>
-                        <h4 class="font-bold text-sm">Organizer — Rush Hours, UIU Robotics</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Managed media/promotions and organized competitions.</p>
+                    <div class="mb-10 ml-8 md:ml-10 reveal relative">
+                        <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[43px] md:-left-[52px] ring-4 ring-dark-900 bg-white/10"></span>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold text-white">Former Campus Ambassador</h3>
+                                <span class="text-xs font-mono text-gray-400 px-2 py-1 bg-white/5 rounded w-max">Nov 2025 – Dec 2025</span>
+                            </div>
+                            <div class="block mb-4 text-sm font-medium text-gray-400">Linexis-It Institute</div>
+                            <p class="text-sm text-gray-400 leading-relaxed">Represented Linexis IT at UIU, fostering relationships between the student body and the company. Led marketing initiatives and connected students with tech opportunities. (ID: LCA-005)</p>
+                        </div>
                     </div>
 
-                     <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">Jul 2023</div>
-                        <h4 class="font-bold text-sm">Volunteer — Banglalink Youth Fest</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Logistics management and attendee assistance.</p>
-                    </div>
-                    
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">Jun 2023</div>
-                        <h4 class="font-bold text-sm">Volunteer — UIU CSE Week</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Managed tech events and guided participants.</p>
+                    <div class="mb-10 ml-8 md:ml-10 reveal relative">
+                        <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[43px] md:-left-[52px] ring-4 ring-dark-900 bg-white/10"></span>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold text-white">Jr. Consultant</h3>
+                                <span class="text-xs font-mono text-gray-400 px-2 py-1 bg-white/5 rounded w-max">May 2025 – Oct 2025</span>
+                            </div>
+                            <div class="block mb-4 text-sm font-medium text-gray-400">TripTakerz</div>
+                            <p class="text-sm text-gray-400 leading-relaxed">Managed visa processing and documentation; resolved inquiries via social media and IP calls. Provided strategic consulting with business objectives.</p>
+                        </div>
                     </div>
 
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">2023</div>
-                        <h4 class="font-bold text-sm">Volunteer — Hult Prize & CSE Project Show</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Logistics support, participant guidance, and technical demos.</p>
-                    </div>
-
-                    <div class="relative">
-                        <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-900"></span>
-                        <div class="text-xs font-bold opacity-50 mb-1">Jul 2020</div>
-                        <h4 class="font-bold text-sm">Organizer — Spectrum Fantascienza 1.0</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Planned event, branding, and team coordination.</p>
+                    <div class="ml-8 md:ml-10 reveal relative">
+                        <span class="absolute flex items-center justify-center w-6 h-6 rounded-full -left-[43px] md:-left-[52px] ring-4 ring-dark-900 bg-white/10"></span>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                                <h3 class="text-lg font-bold text-white">Content Writer & Creative</h3>
+                                <span class="text-xs font-mono text-gray-400 px-2 py-1 bg-white/5 rounded w-max">Jun 2023 – Apr 2025</span>
+                            </div>
+                            <div class="block mb-4 text-sm font-medium text-gray-400">Cholokini.com</div>
+                            <p class="text-sm text-gray-400 leading-relaxed">Developed SEO-optimized blog posts and social media content; managed website updates, brand campaigns, and contributed to overall digital brand storytelling.</p>
+                        </div>
                     </div>
 
                 </div>
             </div>
+        </section>
 
-        </div>
-    </div>
-  </section>
+        <section id="projects" class="py-24 relative bg-dark-800/30 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
+                    <div>
+                        <h2 class="text-sm font-bold tracking-widest text-accent-blue uppercase mb-2">Development Works</h2>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Featured Projects</h3>
+                    </div>
+                    <p class="text-gray-400 max-w-md mt-4 md:mt-0 text-sm md:text-right">A curated, interactive selection of premium software engineered systems covering sports portals, utility services, and core ERP engines.</p>
+                </div>
 
-  <section id="contact" class="py-24 px-4">
-    <div class="max-w-3xl mx-auto text-center glass-card p-10 rounded-3xl border-t border-brand-500/30 shadow-2xl shadow-brand-500/10">
-      <h2 class="font-display text-4xl font-bold mb-4">Let's Create Something Amazing</h2>
-      <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-lg mx-auto">
-        I am currently open to internships and part-time roles. Reach out for collaborations in development, branding, or content.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 text-sm">
-        <div class="flex items-center gap-2">
-            <span class="p-2 bg-brand-100 dark:bg-brand-900 rounded-full">📞</span>
-            <a href="tel:+88015312103000" class="hover:text-brand-500 transition-colors">+88015312103000</a>
-        </div>
-        <div class="flex items-center gap-2">
-            <span class="p-2 bg-brand-100 dark:bg-brand-900 rounded-full">✉️</span>
-            <a href="mailto:intesabmontasirzidne99@gmail.com" class="hover:text-brand-500 transition-colors">intesabmontasirzidne99@gmail.com</a>
-        </div>
-        <div class="flex items-center gap-2">
-            <span class="p-2 bg-brand-100 dark:bg-brand-900 rounded-full">📍</span>
-            <span>Dhaka, Bangladesh</span>
-        </div>
-      </div>
+                <!-- Custom Filter Tabs -->
+                <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-12 reveal" id="filter-bar">
+                    <button data-filter="all" class="interactive px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-full bg-white text-black transition-all border border-white shadow-[0_0_15px_rgba(255,255,255,0.1)]">All Projects</button>
+                    <button data-filter="utility" class="interactive px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-full glass border border-white/5 text-gray-400 hover:text-white transition-all">Utility Apps</button>
+                    <button data-filter="sports" class="interactive px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-full glass border border-white/5 text-gray-400 hover:text-white transition-all">Sports Portals</button>
+                    <button data-filter="enterprise" class="interactive px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-full glass border border-white/5 text-gray-400 hover:text-white transition-all">Enterprise & ERP</button>
+                </div>
 
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="mailto:intesabmontasirzidne99@gmail.com" class="px-8 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold transition-all shadow-lg hover:shadow-brand-500/50">
-          Email Me
-        </a>
-        <a href="#top" class="px-8 py-3 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all font-semibold">
-            Back to Top
-        </a>
-      </div>
-    </div>
-    
-    <div class="mt-12 flex justify-center opacity-80 hover:opacity-100 transition-opacity">
-        <img src="image Zdne.png" class="w-24 h-24 object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-xl" alt="Contact Visual" onerror="this.style.display='none'">
-    </div>
-  </section>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                    
+                    <!-- Project: VC Cup Central (Sports) -->
+                    <div data-category="sports" class="glass-card rounded-2xl overflow-hidden group reveal interactive flex flex-col">
+                        <div class="h-48 bg-dark-800 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-dark-800 to-accent-blue/10">
+                            <i class="fas fa-trophy text-5xl text-accent-blue opacity-50 group-hover:scale-110 transition-transform duration-700"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                            <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white border border-white/10">Tournament Portal</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-blue transition-colors">VC Cup Central</h4>
+                            <p class="text-sm text-gray-400 mb-6 flex-grow">A sleek digital headquarters built on Lovable to manage team listings, dynamic bracket updates, live scheduling, and real-time tournament details.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">React</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Lovable Tech</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Tailwind</span>
+                            </div>
+                            
+                            <a href="https://vc-cup-central.lovable.app/" target="_blank" class="inline-flex items-center text-sm font-medium text-white hover:text-accent-blue transition-colors mt-auto">
+                                Live Preview <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
 
-  <footer class="py-12 text-center text-sm text-slate-500 border-t border-white/10 glass-card relative z-10">
-    <div class="max-w-6xl mx-auto px-4">
+                    <!-- Project: Smart UIU Bookshop (Utility) -->
+                    <div data-category="utility" class="glass-card rounded-2xl overflow-hidden group reveal interactive flex flex-col">
+                        <div class="h-48 bg-dark-800 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-dark-800 to-accent-purple/10">
+                            <i class="fas fa-book-open text-5xl text-accent-purple opacity-50 group-hover:scale-110 transition-transform duration-700"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                            <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white border border-white/10">Marketplace</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-purple transition-colors">Smart UIU Bookshop</h4>
+                            <p class="text-sm text-gray-400 mb-6 flex-grow">An interactive book buying, selling, and exchange interface custom crafted to streamline peer-to-peer textbook trades for UIU students.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">UIU Utility</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Vanilla JS</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Responsive</span>
+                            </div>
+                            
+                            <a href="https://ziducherry90.github.io/smartuiubookshop/" target="_blank" class="inline-flex items-center text-sm font-medium text-white hover:text-accent-purple transition-colors mt-auto">
+                                Live Preview <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project: Mock ERP System (Enterprise) -->
+                    <div data-category="enterprise" class="glass-card rounded-2xl overflow-hidden group reveal interactive flex flex-col">
+                        <div class="h-48 bg-dark-800 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-dark-800 to-accent-cyan/10">
+                            <i class="fas fa-network-wired text-5xl text-accent-cyan opacity-50 group-hover:scale-110 transition-transform duration-700"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                            <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white border border-white/10">ERP System</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-cyan transition-colors">Mock ERP Dashboard</h4>
+                            <p class="text-sm text-gray-400 mb-6 flex-grow">A robust mock enterprise resource planning engine tracking company management flow chart logic, budget sheets, and employee directory details.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Company Ops</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Enterprise Arch</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Vanilla JS</span>
+                            </div>
+                            
+                            <a href="https://ziducherry90.github.io/Mock-ERP-System-For-Company-Management/" target="_blank" class="inline-flex items-center text-sm font-medium text-white hover:text-accent-cyan transition-colors mt-auto">
+                                Live Preview <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project: Old Town United Football Club (Sports) -->
+                    <div data-category="sports" class="glass-card rounded-2xl overflow-hidden group reveal interactive flex flex-col">
+                        <div class="h-48 bg-dark-800 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-dark-800 to-accent-pink/10">
+                            <i class="fas fa-shield-halved text-5xl text-accent-pink opacity-50 group-hover:scale-110 transition-transform duration-700"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                            <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white border border-white/10">Club Branding</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-pink transition-colors">Old Town United Football</h4>
+                            <p class="text-sm text-gray-400 mb-6 flex-grow">A visual command center for Old Town United, blending premium football sports UI structures with squad announcements and match calendars.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Sports UI</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Visual Storytelling</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">HTML/CSS</span>
+                            </div>
+                            
+                            <a href="https://ziducherry90.github.io/oldtownunited/" target="_blank" class="inline-flex items-center text-sm font-medium text-white hover:text-accent-pink transition-colors mt-auto">
+                                Live Preview <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project: UIU Shuttle Service (Utility) -->
+                    <div data-category="utility" class="glass-card rounded-2xl overflow-hidden group reveal interactive flex flex-col">
+                        <div class="h-48 bg-dark-800 relative overflow-hidden flex items-center justify-center">
+                            <i class="fas fa-bus text-5xl text-accent-blue opacity-50 group-hover:scale-110 transition-transform duration-700"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                            <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white border border-white/10">Utility App</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-blue transition-colors">UIU Shuttle Service</h4>
+                            <p class="text-sm text-gray-400 mb-6 flex-grow">A smart university shuttle scheduling platform with responsive UI and practical student-focused utility to track commute schedules.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">HTML</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">CSS</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">JavaScript</span>
+                            </div>
+                            
+                            <a href="https://uiu-shuttle-service-schedule.vercel.app/" target="_blank" class="inline-flex items-center text-sm font-medium text-white hover:text-accent-blue transition-colors mt-auto">
+                                Live Preview <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project: UIU VC Cup S3 Analysis (Sports) -->
+                    <div data-category="sports" class="glass-card rounded-2xl overflow-hidden group reveal interactive flex flex-col">
+                        <div class="h-48 bg-dark-800 relative overflow-hidden flex items-center justify-center">
+                            <i class="fas fa-chart-pie text-5xl text-accent-purple opacity-50 group-hover:scale-110 transition-transform duration-700"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                            <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white border border-white/10">Analytics</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-purple transition-colors">UIU VC Cup S3 Analysis</h4>
+                            <p class="text-sm text-gray-400 mb-6 flex-grow">Comprehensive data analysis and visualization dashboard for the UIU VC Cup Season 3, presenting team statistics and match results.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">JavaScript</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Analytics UI</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Dashboard</span>
+                            </div>
+                            
+                            <a href="https://ziducherry90.github.io/uiu-vc-cup-s3-analysis/" target="_blank" class="inline-flex items-center text-sm font-medium text-white hover:text-accent-purple transition-colors mt-auto">
+                                Live Preview <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project: T10 Cricket Platform (Sports) -->
+                    <div data-category="sports" class="glass-card rounded-2xl overflow-hidden group reveal interactive flex flex-col">
+                        <div class="h-48 bg-dark-800 relative overflow-hidden flex items-center justify-center">
+                            <i class="fas fa-baseball-ball text-5xl text-accent-teal opacity-50 group-hover:scale-110 transition-transform duration-700"></i>
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
+                            <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs text-white border border-white/10">Web App</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">T10 Cricket Platform</h4>
+                            <p class="text-sm text-gray-400 mb-6 flex-grow">Dynamic web portal for managing T10 cricket tournaments, featuring team registration, interactive sports presentation and user engagement.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Frontend Dev</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Sports UI</span>
+                                <span class="px-2 py-1 text-xs rounded bg-white/5 text-gray-300 border border-white/5">Responsive</span>
+                            </div>
+                            
+                            <a href="https://t10-cricket.vercel.app/" target="_blank" class="inline-flex items-center text-sm font-medium text-white hover:text-accent-teal transition-colors mt-auto">
+                                Live Preview <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="creative" class="py-24 relative bg-dark-900 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <div class="mb-16 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-accent-purple uppercase mb-2">Creative Direction</h2>
+                    <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Design & Branding Showcase</h3>
+                    <p class="text-gray-400 max-w-2xl mx-auto mt-4">A curated selection of visual identities, media kits, packaging, and promotional designs driven by strategy.</p>
+                </div>
+
+                <!-- Embedded Behance Projects -->
+                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 reveal text-left">
+                    
+                    <!-- New Branding Embed 0 (Latest) -->
+                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col break-inside-avoid">
+                        <div class="w-full bg-dark-800">
+                            <iframe src="https://www.behance.net/embed/project/249493005?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="text-[10px] font-bold text-accent-blue uppercase tracking-wider">Design & Motion</span>
+                            </div>
+                            <h4 class="font-bold text-lg text-white mb-2">Premium Creative Portfolio</h4>
+                            <p class="text-sm text-gray-400">Integrated visual storytelling asset designed to elevate modern branding layouts and present visual structures with clarity and impact.</p>
+                        </div>
+                    </div>
+
+                    <!-- Branding Embed 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col break-inside-avoid">
+                        <div class="w-full bg-dark-800">
+                            <iframe src="https://www.behance.net/embed/project/248237139?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="text-[10px] font-bold text-accent-purple uppercase tracking-wider">Sports Branding</span>
+                            </div>
+                            <h4 class="font-bold text-lg text-white mb-2">UIU VC Cup S3 Branding</h4>
+                            <p class="text-sm text-gray-400">Complete visual identity and media kit for the UIU VC Cup Season 3, driving high tournament engagement.</p>
+                        </div>
+                    </div>
+
+                    <!-- Branding Embed 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col break-inside-avoid">
+                        <div class="w-full bg-dark-800">
+                            <iframe src="https://www.behance.net/embed/project/248058715?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="text-[10px] font-bold text-accent-pink uppercase tracking-wider">Print Design / Retail</span>
+                            </div>
+                            <h4 class="font-bold text-lg text-white mb-2">Seasonal Retail Catalog</h4>
+                            <p class="text-sm text-gray-400">A vibrant and strategically laid out promotional catalog designed to highlight seasonal retail products.</p>
+                        </div>
+                    </div>
+
+                    <!-- Branding Embed 3 -->
+                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col break-inside-avoid">
+                        <div class="w-full bg-dark-800">
+                            <iframe src="https://www.behance.net/embed/project/247986947?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="text-[10px] font-bold text-accent-cyan uppercase tracking-wider">Packaging / Identity</span>
+                            </div>
+                            <h4 class="font-bold text-lg text-white mb-2">Brand Identity & Packaging</h4>
+                            <p class="text-sm text-gray-400">End-to-end product packaging and visual identity design. Emphasizes a modern, premium aesthetic.</p>
+                        </div>
+                    </div>
+
+                    <!-- Branding Embed 4 -->
+                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col break-inside-avoid">
+                        <div class="w-full bg-dark-800">
+                            <iframe src="https://www.behance.net/embed/project/247960597?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="text-[10px] font-bold text-accent-orange uppercase tracking-wider">Social Media / Sports</span>
+                            </div>
+                            <h4 class="font-bold text-lg text-white mb-2">Sports Branding Kit</h4>
+                            <p class="text-sm text-gray-400">A versatile and dynamic social media graphic kit tailored specifically for sports teams and match fixtures.</p>
+                        </div>
+                    </div>
+
+                    <!-- Branding Embed 5 -->
+                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col break-inside-avoid">
+                        <div class="w-full bg-dark-800">
+                            <iframe src="https://www.behance.net/embed/project/247927641?ilo0=1" height="316" class="w-full border-0 block" allowfullscreen lazyload frameborder="0" allow="clipboard-write" refererPolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="text-[10px] font-bold text-red-500 uppercase tracking-wider">Advertising / FMCG</span>
+                            </div>
+                            <h4 class="font-bold text-lg text-white mb-2">Tajmahal Foods Mega Sale</h4>
+                            <p class="text-sm text-gray-400">High-conversion promotional banners crafted for a major retail campaign to drive retail sales.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-12 reveal">
+                    <a href="https://www.behance.net/intesabzidne" target="_blank" class="interactive inline-flex items-center gap-3 px-8 py-4 glass-card rounded-full hover:bg-white/10 transition-colors border border-white/10 text-white font-medium group">
+                        <i class="fab fa-behance text-2xl text-[#1769ff] group-hover:scale-110 transition-transform"></i> View Full Portfolio on Behance
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 relative overflow-hidden bg-dark-800/30 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    
+                    <!-- Skills Container with Branded Mini-Logos -->
+                    <div class="reveal">
+                        <h3 class="text-2xl font-display font-bold text-white mb-8 flex items-center gap-3">
+                            <i class="fas fa-layer-group text-accent-blue"></i> Technical & Creative Arsenal
+                        </h3>
+                        
+                        <div class="space-y-8">
+                            <!-- Dev Skills -->
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-400 mb-4 uppercase tracking-wider">Development</h4>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-[#f89820] hover:bg-[#f89820]/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fab fa-java text-[#f89820] text-lg group-hover:scale-110 transition-transform"></i> Java
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-[#659ad2] hover:bg-[#659ad2]/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <span class="font-extrabold text-[#659ad2] font-mono text-xs px-1.5 py-0.5 rounded bg-white/5 group-hover:scale-110 transition-transform">C</span> C Programming
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-[#e34f26] hover:bg-[#e34f26]/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <div class="flex items-center gap-1 text-lg group-hover:scale-110 transition-transform">
+                                            <i class="fab fa-html5 text-[#e34f26]"></i>
+                                            <i class="fab fa-js text-[#f7df1e]"></i>
+                                        </div> HTML/JS
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-accent-blue hover:bg-accent-blue/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-laptop-code text-accent-blue text-base group-hover:scale-110 transition-transform"></i> Frontend Development
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-accent-cyan hover:bg-accent-cyan/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-mobile-screen-button text-accent-cyan text-base group-hover:scale-110 transition-transform"></i> Responsive Design
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-[#007acc] hover:bg-[#007acc]/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-code text-[#007acc] text-base group-hover:scale-110 transition-transform"></i> VS Code
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Creative Skills -->
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-400 mb-4 uppercase tracking-wider">Creative & Media</h4>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-[#00c4cc] hover:bg-[#00c4cc]/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-wand-magic-sparkles text-[#00c4cc] text-base group-hover:scale-110 transition-transform"></i> Canva (95%)
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-[#00f2fe] hover:bg-[#00f2fe]/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-scissors text-[#00f2fe] text-base group-hover:scale-110 transition-transform"></i> CapCut (90%)
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-[#ff9a00] hover:bg-[#ff9a00]/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <span class="font-bold text-[#ff9a00] text-[10px] px-1.5 py-0.5 rounded bg-[#ff9a00]/10 border border-[#ff9a00]/20 group-hover:scale-110 transition-transform">Ai</span> Adobe Illustrator
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-[#31a8ff] hover:bg-[#31a8ff]/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <span class="font-bold text-[#31a8ff] text-[10px] px-1.5 py-0.5 rounded bg-[#31a8ff]/10 border border-[#31a8ff]/20 group-hover:scale-110 transition-transform">Ps</span> Photoshop
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-accent-purple hover:bg-accent-purple/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-clapperboard text-accent-purple text-base group-hover:scale-110 transition-transform"></i> Video Editing
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Marketing & Competencies -->
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-400 mb-4 uppercase tracking-wider">Marketing & Core Competencies</h4>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-accent-cyan hover:bg-accent-cyan/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-chart-line text-accent-cyan text-base group-hover:scale-110 transition-transform"></i> Content Strategy
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-accent-teal hover:bg-accent-teal/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-magnifying-glass-chart text-accent-teal text-base group-hover:scale-110 transition-transform"></i> SEO Writing
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-accent-orange hover:bg-accent-orange/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-bullhorn text-accent-orange text-base group-hover:scale-110 transition-transform"></i> Brand Storytelling
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-[#1877f2] hover:bg-[#1877f2]/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-comments text-[#1877f2] text-base group-hover:scale-110 transition-transform"></i> Communication (95%)
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-[#f59e0b] hover:bg-[#f59e0b]/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-crown text-[#f59e0b] text-base group-hover:scale-110 transition-transform"></i> Leadership (90%)
+                                    </span>
+                                    <span class="px-4 py-2.5 glass rounded-full text-sm font-medium text-gray-200 border border-white/10 hover:border-accent-pink hover:bg-accent-pink/5 hover:text-white transition-all duration-300 interactive flex items-center gap-2.5 group">
+                                        <i class="fas fa-brain text-accent-pink text-base group-hover:scale-110 transition-transform"></i> Problem-Solving
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Honors & Awards -->
+                    <div class="reveal">
+                        <h3 class="text-2xl font-display font-bold text-white mb-8 flex items-center gap-3">
+                            <i class="fas fa-trophy text-yellow-500"></i> Honors & Awards
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="glass-card p-5 rounded-xl border-l-2 border-l-yellow-500 interactive">
+                                <i class="fas fa-star text-2xl text-gray-400 mb-3 block"></i>
+                                <h4 class="text-white font-medium mb-1">"Oddity Special" Award</h4>
+                                <p class="text-sm text-gray-400">Recognition for exceptional creative contribution.</p>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl border-l-2 border-l-orange-500 interactive">
+                                <i class="fas fa-camera text-2xl text-gray-400 mb-3 block"></i>
+                                <h4 class="text-white font-medium mb-1">DSLR Photography Contest</h4>
+                                <p class="text-sm text-accent-cyan">3rd Place (MGGHS Fiesta)</p>
+                            </div>
+                            
+                            <div class="glass-card p-5 rounded-xl border-l-2 border-l-accent-blue interactive">
+                                <i class="fas fa-globe text-2xl text-gray-400 mb-3 block"></i>
+                                <h4 class="text-white font-medium mb-1">Int'l Entrepreneurs Day</h4>
+                                <p class="text-sm text-gray-400">2023 Recipient</p>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl border-l-2 border-l-green-500 interactive">
+                                <i class="fas fa-hands-helping text-2xl text-gray-400 mb-3 block"></i>
+                                <h4 class="text-white font-medium mb-1">Youth For Smile 2021</h4>
+                                <p class="text-sm text-green-400">Best Volunteer</p>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl sm:col-span-2 border-l-2 border-l-accent-purple interactive">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <i class="fas fa-network-wired text-2xl text-gray-400 mb-3 block"></i>
+                                        <h4 class="text-white font-medium mb-1">Zero Missing Children Network</h4>
+                                        <p class="text-sm text-gray-400">2025 Recognition</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="leadership" class="py-24 relative bg-dark-900 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-sm font-bold tracking-widest text-accent-teal uppercase mb-2">Community Impact</h2>
+                    <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Leadership & Activities</h3>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16">
+                    
+                    <!-- Executive Roles -->
+                    <div class="reveal">
+                        <h4 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Executive & Management</h4>
+                        <div class="space-y-4">
+                            
+                            <div class="glass-card p-5 rounded-xl flex items-start gap-4">
+                                <div class="p-3 rounded-lg bg-white/5 text-accent-purple"><i class="fas fa-robot"></i></div>
+                                <div>
+                                    <h5 class="text-white font-bold">Branding & Graphics Secretary</h5>
+                                    <p class="text-xs text-accent-cyan mb-2">UIU Robotics (Present)</p>
+                                    <p class="text-sm text-gray-400">Spearheading visual identity, ensuring brand consistency, and supervising the design team.</p>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl flex items-start gap-4">
+                                <div class="p-3 rounded-lg bg-white/5 text-accent-teal"><i class="fas fa-leaf"></i></div>
+                                <div>
+                                    <h5 class="text-white font-bold">Executive, Communications</h5>
+                                    <p class="text-xs text-accent-cyan mb-2">Environment & Children Rights Save Org (Present)</p>
+                                    <p class="text-sm text-gray-400">Leading strategic communication to raise awareness on environmental/child welfare issues.</p>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl flex items-start gap-4">
+                                <div class="p-3 rounded-lg bg-white/5 text-green-500"><i class="fas fa-futbol"></i></div>
+                                <div>
+                                    <h5 class="text-white font-bold">Contributor</h5>
+                                    <p class="text-xs text-accent-cyan mb-2">Bangladesh Football Live (Present)</p>
+                                    <p class="text-sm text-gray-400">Creating engaging sports content, match analyses, and covering football events.</p>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl flex items-start gap-4">
+                                <div class="p-3 rounded-lg bg-white/5 text-accent-orange"><i class="fas fa-users"></i></div>
+                                <div>
+                                    <h5 class="text-white font-bold">Asst. Head of HR</h5>
+                                    <p class="text-xs text-accent-cyan mb-2">UIU Sports Club (Present)</p>
+                                    <p class="text-sm text-gray-400">Overseeing recruitment, HR operations, and promoting teamwork culture.</p>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-5 rounded-xl flex items-start gap-4 border-l-2 border-l-accent-blue">
+                                <div>
+                                    <h5 class="text-white font-bold mb-2">Sports Team Management</h5>
+                                    <ul class="text-sm text-gray-400 space-y-2">
+                                        <li class="flex justify-between border-b border-white/5 pb-2">
+                                            <span><strong>Team Manager</strong>, Fierce Falcons (Cricket)</span> <span class="text-xs text-gray-500">Jun 2025 - Present</span>
+                                        </li>
+                                        <li class="flex justify-between">
+                                            <span><strong>Director of Ops</strong>, Isotopes FC</span> <span class="text-xs text-gray-500">2022 - Present</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Event Volunteering Timeline -->
+                    <div class="reveal">
+                        <h4 class="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Event Volunteering & Organizing</h4>
+                        
+                        <div class="relative border-l border-white/10 ml-3 space-y-8 pl-6">
+                            
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-accent-blue border-2 border-dark-900"></span>
+                                <div class="text-xs font-bold text-gray-500 mb-1">Nov 2025</div>
+                                <h5 class="font-bold text-sm text-white">Volunteer — UIU VC Cup Football</h5>
+                                <p class="text-xs text-gray-400 mt-1">Logistics, crowd control, and branding support for high-attendance matches.</p>
+                            </div>
+
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gray-600 border-2 border-dark-900"></span>
+                                <div class="text-xs font-bold text-gray-500 mb-1">Aug 2025</div>
+                                <h5 class="font-bold text-sm text-white">Organizer — UIU CSE FEST 2025</h5>
+                                <p class="text-xs text-gray-400 mt-1">Organized Robo Soccer & Line Follower events; coordinated schedules.</p>
+                            </div>
+
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gray-600 border-2 border-dark-900"></span>
+                                <div class="text-xs font-bold text-gray-500 mb-1">Mar 2025 – Present</div>
+                                <h5 class="font-bold text-sm text-white">Institutional Rep — Sanskaran Foundation</h5>
+                                <p class="text-xs text-gray-400 mt-1">Represented the foundation in collaborations; planned community programs.</p>
+                            </div>
+
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gray-600 border-2 border-dark-900"></span>
+                                <div class="text-xs font-bold text-gray-500 mb-1">Mar 2025</div>
+                                <h5 class="font-bold text-sm text-white">Organizer — Zero Missing Children Summit</h5>
+                                <p class="text-xs text-gray-400 mt-1">Managed venue logistics, speaker coordination, and event promotion.</p>
+                            </div>
+
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gray-600 border-2 border-dark-900"></span>
+                                <div class="text-xs font-bold text-gray-500 mb-1">Jan 2025</div>
+                                <h5 class="font-bold text-sm text-white">Organizer/Branding — UIU Comedy Carnival</h5>
+                                <p class="text-xs text-gray-400 mt-1">Designed posters, managed social media, and coordinated performers.</p>
+                            </div>
+
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gray-600 border-2 border-dark-900"></span>
+                                <div class="text-xs font-bold text-gray-500 mb-1">Jan 2025</div>
+                                <h5 class="font-bold text-sm text-white">Volunteer — WROBd 2025 Dhaka Regional</h5>
+                                <p class="text-xs text-gray-400 mt-1">Assisted judges and provided technical support to robotics teams.</p>
+                            </div>
+                            
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gray-600 border-2 border-dark-900"></span>
+                                <div class="text-xs font-bold text-gray-500 mb-1">2023 - 2024</div>
+                                <h5 class="font-bold text-sm text-white">Previous Roles & Organizing</h5>
+                                <p class="text-xs text-gray-400 mt-1">Volunteer at Banglalink Youth Fest, Hult Prize, UIU CSE Week, and Organizer for Rush Hours & Spectrum Fantascienza 1.0.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 relative bg-gradient-to-b from-dark-800/30 to-dark-900 border-t border-white/5">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <div class="reveal mb-12 flex flex-col items-center">
+                    <img src="image Zdne.jpg" alt="Contact Illustration" class="w-28 h-28 rounded-full object-cover border-4 border-white/10 mb-6 shadow-[0_0_30px_rgba(59,130,246,0.3)] bg-white">
+                    <h2 class="text-5xl md:text-7xl font-display font-bold text-white mb-6">Let's build something <br><span class="text-gradient">impactful</span> together.</h2>
+                    <p class="text-xl text-gray-400">Open for internships, collaborations, and coffee chats.</p>
+                </div>
+
+                <!-- Contact Direct Info -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 text-sm reveal">
+                    <div class="flex items-center gap-2 glass-card px-4 py-2 rounded-full">
+                        <i class="fas fa-phone text-accent-blue"></i>
+                        <a href="tel:+88015312103000" class="text-gray-300 hover:text-white transition-colors interactive">+880 153 121 0300</a>
+                    </div>
+                    <div class="flex items-center gap-2 glass-card px-4 py-2 rounded-full">
+                        <i class="fas fa-envelope text-accent-purple"></i>
+                        <a href="mailto:montasirintesab@gmail.com" class="text-gray-300 hover:text-white transition-colors interactive">montasirintesab@gmail.com</a>
+                    </div>
+                    <div class="flex items-center gap-2 glass-card px-4 py-2 rounded-full">
+                        <i class="fas fa-map-marker-alt text-accent-cyan"></i>
+                        <span class="text-gray-300">Dhaka, Bangladesh</span>
+                    </div>
+                </div>
+
+                <!-- Social Links Grid -->
+                <div class="flex flex-wrap justify-center gap-4 mb-16 reveal">
+                    <a href="https://www.linkedin.com/in/intesab-montasir-zidne90" target="_blank" class="interactive group w-14 h-14 rounded-full glass flex items-center justify-center text-gray-400 hover:text-[#0a66c2] hover:bg-white/10 hover:shadow-[0_0_20px_rgba(10,102,194,0.3)] transition-all">
+                        <i class="fab fa-linkedin-in text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://github.com/ziducherry90" target="_blank" class="interactive group w-14 h-14 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all">
+                        <i class="fab fa-github text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://www.behance.net/intesabzidne" target="_blank" class="interactive group w-14 h-14 rounded-full glass flex items-center justify-center text-gray-400 hover:text-[#1769ff] hover:bg-white/10 hover:shadow-[0_0_20px_rgba(23,105,255,0.3)] transition-all">
+                        <i class="fab fa-behance text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@ziducherry/featured" target="_blank" class="interactive group w-14 h-14 rounded-full glass flex items-center justify-center text-gray-400 hover:text-[#ff0000] hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all">
+                        <i class="fab fa-youtube text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://www.facebook.com/ziducherry" target="_blank" class="interactive group w-14 h-14 rounded-full glass flex items-center justify-center text-gray-400 hover:text-[#1877f2] hover:bg-white/10 hover:shadow-[0_0_20px_rgba(24,119,242,0.3)] transition-all">
+                        <i class="fab fa-facebook-f text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://www.instagram.com/zid.u1/" target="_blank" class="interactive group w-14 h-14 rounded-full glass flex items-center justify-center text-gray-400 hover:text-[#e4405f] hover:bg-white/10 hover:shadow-[0_0_20px_rgba(228,64,95,0.3)] transition-all">
+                        <i class="fab fa-instagram text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@intesabmontasirzidne" target="_blank" class="interactive group w-14 h-14 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all">
+                        <i class="fab fa-tiktok text-xl group-hover:scale-110 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="glass-card p-8 rounded-3xl reveal max-w-2xl mx-auto" onsubmit="event.preventDefault(); showMessage();">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="text-left">
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Name</label>
+                            <input type="text" required class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue transition-all interactive-input">
+                        </div>
+                        <div class="text-left">
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                            <input type="email" required class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue transition-all interactive-input">
+                        </div>
+                    </div>
+                    <div class="text-left mb-6">
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                        <textarea rows="4" required class="w-full bg-dark-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-accent-blue focus:ring-1 focus:ring-accent-blue transition-all interactive-input resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="interactive w-full py-4 rounded-xl bg-white text-black font-bold flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors group">
+                        Send Message <i class="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                    </button>
+                    
+                    <!-- Custom Success Message (replaces alert) -->
+                    <div id="success-msg" class="hidden mt-4 p-3 bg-green-500/20 border border-green-500/50 text-green-400 rounded-lg text-sm">
+                        Message sent successfully! (Demo mode)
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <footer class="py-8 border-t border-white/5 bg-dark-900 text-center text-gray-500 text-sm">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Intesab Montasir Zidne. Designed with logic & emotion.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Custom Cursor Logic
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
         
-        <div class="flex flex-wrap justify-center gap-4 mb-8">
-            <a href="https://github.com/ziducherry90" target="_blank" class="p-3 rounded-full bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700 hover:text-black dark:hover:text-white transition-all shadow-sm hover:shadow-md" aria-label="GitHub">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/intesab-montasir-zidne90/" target="_blank" class="p-3 rounded-full bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700 hover:text-[#0077b5] transition-all shadow-sm hover:shadow-md" aria-label="LinkedIn">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="https://www.behance.net/intesabzidne" target="_blank" class="p-3 rounded-full bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700 hover:text-[#1769ff] transition-all shadow-sm hover:shadow-md" aria-label="Behance">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 7h-7v-2h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.992 5.365 4.492l.096.536h-7.85c.166 1.714 1.253 3.655 3.228 3.655 1.314 0 2.297-.563 2.802-1.39l2.558 1.302zm-2.846-3.324c-.114-1.385-1.013-2.607-2.548-2.607-1.243 0-2.256.963-2.529 2.607h5.077zm-14.88-5.676v4.618c.677-.315 1.488-.506 2.146-.506 1.631 0 2.923.868 2.923 2.766 0 2.37-1.896 3.118-4.227 3.118h-6.842v-13.882h6.143c2.046 0 3.923.888 3.923 2.96 0 1.558-1.258 2.45-2.316 2.753v.018c1.37.218 1.936 1.157 1.936 2.155h-3.686zm-2.981-2.906h2.17c.928 0 1.442-.423 1.442-1.077 0-.712-.596-1.118-1.353-1.118h-2.259v2.195zm0 4.882h2.518c.95 0 1.644-.45 1.644-1.242 0-.85-.758-1.241-1.611-1.241h-2.551v2.483z"/></svg>
-            </a>
-            <a href="https://www.youtube.com/@ziducherry" target="_blank" class="p-3 rounded-full bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700 hover:text-[#FF0000] transition-all shadow-sm hover:shadow-md" aria-label="YouTube">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-5.8 31 31 0 0 0-.5-5.8zM9.75 15.02V8.98l6.25 3.02-6.25 3.02z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/itsmon.zidne25" target="_blank" class="p-3 rounded-full bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700 hover:text-[#1877F2] transition-all shadow-sm hover:shadow-md" aria-label="Facebook">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.5 12a10.5 10.5 0 1 0-12.15 10.4v-7.35H7.9V12h2.45V9.55c0-2.42 1.44-3.76 3.64-3.76 1.05 0 2.15.18 2.15.18v2.37h-1.21c-1.19 0-1.56.74-1.56 1.5V12h2.65l-.42 3.05h-2.23v7.35A10.5 10.5 0 0 0 22.5 12z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/zid.u1/" target="_blank" class="p-3 rounded-full bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700 hover:text-[#E4405F] transition-all shadow-sm hover:shadow-md" aria-label="Instagram">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.75-.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5z"/></svg>
-            </a>
-            <a href="https://www.tiktok.com/@intesabmontasirzidne?_t=ZS-90Za8K73yLs&_r=1" target="_blank" class="p-3 rounded-full bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700 hover:text-black dark:hover:text-white transition-all shadow-sm hover:shadow-md" aria-label="TikTok">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2h2.2c.4 2 1.9 3.8 3.8 4.6V9c-1.7-.1-3.3-.6-4.8-1.5v6.4c0 3.4-2.8 6.1-6.1 6.1S3 17.3 3 13.9c0-3 2.2-5.6 5.1-6V11c-1.1.3-1.9 1.3-1.9 2.5 0 1.4 1.1 2.6 2.6 2.6s2.6-1.2 2.6-2.6V2z"/></svg>
-            </a>
-        </div>
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
 
-        <p>© <span id="year"> </span> All rights reserved. and developed by Intesab Montasir Zidne.</p>
-    </div>
-  </footer>
+            // Dot follows instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
 
-  <script>
-  const text = document.getElementById('typewriter');
-  const phrases = ['Intesab Montasir Zidne', 'Zidne', 'Zidu Cherry', 'a Software Developer', 'a Content Creator'];
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typeSpeed = 150;
+            // Outline follows with slight delay
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 150, fill: "forwards" });
+        });
 
-  function type() {
-    const currentPhrase = phrases[phraseIndex];
-    
-    if (isDeleting) {
-      text.textContent = currentPhrase.substring(0, charIndex - 1);
-      charIndex--;
-      typeSpeed = 50;
-    } else {
-      text.textContent = currentPhrase.substring(0, charIndex + 1);
-      charIndex++;
-      typeSpeed = 150;
-    }
+        // Hover effect for interactive elements
+        const interactives = document.querySelectorAll('a, button, .interactive, .interactive-input');
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                document.body.classList.add('cursor-hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                document.body.classList.remove('cursor-hover');
+            });
+        });
 
-    if (!isDeleting && charIndex === currentPhrase.length) {
-      isDeleting = true;
-      typeSpeed = 2000; // Wait at end
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      typeSpeed = 500;
-    }
+        // Scroll Reveal Animation via Intersection Observer
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
 
-    setTimeout(type, typeSpeed);
-  }
+        // Navbar blur effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2');
+            }
+        });
 
-  // Set Current Year
-  document.getElementById('year').textContent = new Date().getFullYear();
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  // Start the animation
-  document.addEventListener('DOMContentLoaded', type);
-</script>
+        mobileBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('opacity-0')) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            });
+        });
+
+        // Text Rotator Logic
+        var TxtRotate = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtRotate.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+            var that = this;
+            var delta = 150 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function() {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function() {
+            var elements = document.getElementsByClassName('txt-rotate');
+            for (var i=0; i<elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-rotate');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+        };
+
+        // Form Custom Message
+        function showMessage() {
+            const msg = document.getElementById('success-msg');
+            msg.classList.remove('hidden');
+            setTimeout(() => {
+                msg.classList.add('hidden');
+                document.querySelector('form').reset();
+            }, 3000);
+        }
+
+        // Project Filtering Logic
+        const filterButtons = document.querySelectorAll('#filter-bar button');
+        const projectCards = document.querySelectorAll('#projects-grid [data-category]');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button classes
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-white', 'text-black', 'shadow-[0_0_15px_rgba(255,255,255,0.1)]');
+                    b.classList.add('glass', 'border-white/5', 'text-gray-400');
+                });
+                btn.classList.add('bg-white', 'text-black', 'shadow-[0_0_15px_rgba(255,255,255,0.1)]');
+                btn.classList.remove('glass', 'border-white/5', 'text-gray-400');
+
+                const activeFilter = btn.getAttribute('data-filter');
+
+                // Filter logic
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (activeFilter === 'all' || cardCategory === activeFilter) {
+                        card.classList.remove('project-hidden');
+                        // Small timeout to allow transition to kick in if using animation libraries
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        // Wait for transition before hiding layout space
+                        setTimeout(() => {
+                            card.classList.add('project-hidden');
+                        }, 300);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
